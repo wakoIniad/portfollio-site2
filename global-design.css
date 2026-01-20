@@ -124,8 +124,13 @@ header {
     justify-content: center;
 }
 
+header.rotated-ui {
+    width: 100vh;
+}
+
 header > .item {
-    padding: 16px;
+    padding-inline: 16px;
+    padding-block: 0;
     flex: 1;
 }
 
@@ -135,6 +140,16 @@ header > .item {
     background-color: white;
     display: inline-flex;
     flex-direction: column;
+}
+
+.v-marker {
+    width: 0.17em;
+    height: 1em;
+    margin-inline: 0.2em;;
+    background-color: rgb(32, 255, 218);
+    display: inline-flex;
+    flex-direction: column;
+
 }
 
 .frame-1 {
@@ -217,4 +232,22 @@ header > .item {
     overflow: hidden;
     white-space: normal;  
     overflow-wrap: break-word;
+}
+
+.rotated-ui {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transform: rotate(90deg) translate(0%, -100%);
+    transform-origin: center left;
+    z-index:1;
+}
+
+.rotated-ui2 {
+    position: absolute;
+    left: -50%;
+    top: 0%;
+    width: 100vh;
+    transform: rotate(90deg) translate(50%, 0%);
+    z-index:1;
 }
