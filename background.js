@@ -10,7 +10,7 @@ const renderer = new THREE.WebGLRenderer({
 const container_style = getComputedStyle(def.mainBoard);
 
 let width, height;
-const updateContainerSize = () => ({ offsetWidth: width, offsetHeight: height } = def.mainBackgroundCanvas);
+const updateContainerSize = () => ({ offsetWidth: width, offsetHeight: height } = def.mainBoard);
 updateContainerSize();
 renderer.setSize(width, height);
 
@@ -46,6 +46,7 @@ scene.add(light);
 // レンダリング
 renderer.render(scene, camera);
 window.addEventListener('resize', () => {
+    updateContainerSize();
     camera.aspect = width / height;
     renderer.setSize(width, height);
     camera.updateProjectionMatrix();
@@ -55,6 +56,8 @@ window.addEventListener('resize', () => {
 
 let i = 0;
 def.mainBoard.addEventListener('scroll', () => {
+    updateContainerSize();
+
     i = def.mainBoard.scrollTop
     light.position.set(
         1, 
