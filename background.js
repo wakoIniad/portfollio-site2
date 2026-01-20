@@ -1,23 +1,24 @@
 import * as THREE from "three";
 
-const target = document.querySelector("#myCanvas");
-const container = document.querySelector("#main-container");
+import * as def from "./define.js";
+
 const renderer = new THREE.WebGLRenderer({
-  canvas: target, 
+  canvas: def.mainBackgroundCanvas, 
   alpha: true 
 });
 
-const container_style = getComputedStyle(container);
+const container_style = getComputedStyle(def.mainBoard);
 
-let { offsetWidth: width, offsetHeight: height } = target;
-
-renderer.setSize(container.offsetWidth, container.offsetHeight);
+let width, height;
+const updateContainerSize = () => ({ offsetWidth: width, offsetHeight: height } = def.mainBackgroundCanvas);
+updateContainerSize();
+renderer.setSize(width, height);
 
 renderer.setPixelRatio(window.devicePixelRatio || 1);
 const scene = new THREE.Scene();
 
 // カメラを作成
-const camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 1, 10000);
+const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
 // カメラの初期座標を設定（X座標:0, Y座標:0, Z座標:0）
 camera.position.set(0, 0, 1000);
 
@@ -45,23 +46,23 @@ scene.add(light);
 // レンダリング
 renderer.render(scene, camera);
 window.addEventListener('resize', () => {
-    camera.aspect = container.offsetWidth / container.offsetHeight;
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
+    camera.aspect = width / height;
+    renderer.setSize(width, height);
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
 });
 
 
 let i = 0;
-container.addEventListener('scroll', () => {
-    i = container.scrollTop
+def.mainBoard.addEventListener('scroll', () => {
+    i = def.mainBoard.scrollTop
     light.position.set(
         1, 
-        1 - 3*container.scrollTop / container.offsetHeight,
+        1 - 3*def.mainBoard.scrollTop / height,
         1
     ); // ライトの方向
     console.log("aiueo", 
-        container.scrollTop,
-        3*container.scrollTop / container.offsetHeight);
+        def.mainBoard.scrollTop,
+        3*def.mainBoard.scrollTop / height);
     renderer.render(scene, camera);
 })

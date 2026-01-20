@@ -87,7 +87,7 @@ main {
     top: 0;
     overflow-y: scroll;
     flex-direction: column;
-    padding-inline: 3rem;
+    padding-inline: 48px;
 
     scrollbar-color: transparent transparent;
     align-items: center;
@@ -130,4 +130,60 @@ header > .item {
     border-color: white;
     border-width: 4px;
     padding: 16px;
+}
+
+#full-screen-main-multi-ui-container {
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.expand-on-click {
+    cursor:zoom-in;
+}
+
+.expand-on-click .description {
+    display: none;
+}
+
+#full-screen-main-multi-ui-container:has(.expanded) {
+    background-color: rgba(26, 34, 52, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#full-screen-main-multi-ui-container .expanded {
+    cursor:zoom-out;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap; 
+}
+#full-screen-main-multi-ui-container .expanded > .img-container {
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 90%;
+    max-height: 100%;
+    width: fit-content;
+    display: block;
+ 
+}
+
+#full-screen-main-multi-ui-container .expanded > .img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 64px;
+}
+
+
+#full-screen-main-multi-ui-container .expanded > .description {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 50px;
+    display: block;
 }

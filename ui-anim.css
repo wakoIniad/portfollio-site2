@@ -1,0 +1,7 @@
+.animating-fade {
+    mask: url(#fade-anim-mask);
+}
+
+.expanded {
+    position: absolute;
+}
