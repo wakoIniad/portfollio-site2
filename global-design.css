@@ -149,7 +149,10 @@ header > .item {
     background-color: rgb(32, 255, 218);
     display: inline-flex;
     flex-direction: column;
+}
 
+.v-marker.orange {
+    background-color: rgb(255, 218, 32);
 }
 
 .frame-1 {
