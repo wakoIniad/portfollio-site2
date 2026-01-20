@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:rgb(26, 34, 52);
+    color: white;
+}
+
+body > * {
+    width: 100%;
+}
+
+body header, body main, body footer {
+    text-align: center;
+}
+@media (min-width: 400px) {
+    body header {
+        flex: 2;
+    }
+
+    body main {
+        flex: 16;
+    }
+
+    body footer {
+        flex: 1;
+    }
+}
+
+@media (max-width: 400px) {
+    body header {
+        display: none;
+    }
+
+    body .rest > .smartphone-ui {
+        display: inherit;
+    }
+
+    body main {
+        flex: 1;
+    }
+
+    body footer {
+        display: none;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.board > canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.board > .board-content {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    flex-direction: column;
+    padding-inline: 3rem;
+
+    scrollbar-color: transparent transparent;
+    align-items: center;
+}
+
+.board-content > .section {
+    margin-block: 8px;
+    width: 60%;
+}
+
+.section img {
+    max-width: 100%;
+    height: auto;
+    max-height: 65vh;
+}
+
+header {
+    background: rgb(25, 26, 36);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header > .item {
+    padding: 16px;
+    flex: 1;
+}
+
+.vr {
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.frame-1 {
+    border-radius: 64px 32px 64px 32px;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    padding: 16px;
+}
