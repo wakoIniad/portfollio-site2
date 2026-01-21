@@ -1291,7 +1291,7 @@ window.p5myanim = true;
 def.mainBoard.addEventListener('scroll', () => {
     //updateContainerSize();
     console.log("q", def.mainBoard.scrollTop, def.mainBoard.offsetHeight);
-    const P = defP + (def.mainBoard.scrollTop / def.mainBoard.offsetHeight)*50;
+    const P = defP + (def.mainBoard.scrollTop / def.mainBoard.offsetHeight)*10;
     cc.style('transform', `translate(-50%, -${P}%)`);
 })
 
