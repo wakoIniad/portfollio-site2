@@ -5,9 +5,9 @@
  */
 
 import * as THREE from "three";
-
 import * as def from "./define.js";
 
+/*
 const renderer = new THREE.WebGLRenderer({
   canvas: def.mainBackgroundCanvas, 
   alpha: true 
@@ -48,6 +48,15 @@ light.position.set(1, 1, 1);
 
 scene.add(light);
 
+//const composer = new THREE.EffectComposer(renderer);
+//const renderPass = new THREE.RenderPass(scene, camera);
+//composer.addPass(renderPass);
+//
+//const godraysPass = new THREE.ShaderPass(THREE.GodRaysShader);
+//godraysPass.renderToScreen = true;
+//composer.addPass(godraysPass);
+
+
 renderer.render(scene, camera);
 window.addEventListener('resize', () => {
     updateContainerSize();
@@ -72,4 +81,4 @@ def.mainBoard.addEventListener('scroll', () => {
         def.mainBoard.scrollTop,
         3*def.mainBoard.scrollTop / height);
     renderer.render(scene, camera);
-})
+})*/

@@ -8,7 +8,8 @@
     <script type="importmap">
       {
         "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js"
+          "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/"
         }
       }
     </script>
@@ -38,9 +39,9 @@
         </defs>
     </svg>
     <header class="rotated-ui">
-      <span class="item"><a href="#">Home</a></span>
       <span class="item"><a href="/works.html">Works</a></span>
-      <span class="item">Links</span>
+      <span class="item"><a href="/works.html">Contact</a></span>
+      <span class="item"><a href="#top">Top</a></span>
       <span class="item">News</span>
       <span class="vr">w<br>h<br>o</span>
       <span class="vr">a<br>r<br>e</span>
@@ -49,7 +50,7 @@
     <main class="container-base">
         <div class="board">
           <div class="board-content" id="main-container">
-            <div class="section">
+            <div class="section" id="top">
               <h1><span class="unit">Wada</span><span class="unit"> Kohsei</span></h1>
               <h4>human<br><br>s1f102400606@iniad.org</h4>
             </div>
@@ -153,8 +154,11 @@
             <div class="frame-1 section">
               Compose Music
             </div>
-          </div>
-          <canvas id="myCanvas"></canvas>
+          </div><!--
+          <canvas id="myCanvas"></canvas>-->
+
+          <div id="myCanvas"></div>
+
         </div>
     </main>
     <footer style="background:yellow;color:rgb(60,60,60);">&copy; 2026 Oasis All rights reserved</footer>
@@ -162,5 +166,7 @@
     <script type="module" src="my-code/define.js"></script>
     <script type="module" src="my-code/background.js"></script>
     <script type="module" src="my-code/ui.js"></script>
+    <script src="other-author-lib/p5js/p5.js"></script>
+    <script type="module" src="my-code/sink-to-bottom.anim.js"></script>
 </body>
 </html>

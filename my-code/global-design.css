@@ -8,6 +8,9 @@
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     width: 100vw;
@@ -17,6 +20,18 @@ body {
     background:rgb(26, 34, 52);
     color: white;
     overflow: hidden;
+}
+
+body > main {
+    overflow: hidden; 
+}
+
+body > main > .board {
+    overflow: hidden; 
+}
+
+body > main > .board > .board-content {
+    scroll-behavior: smooth;
 }
 
 body > * {
