@@ -1,3 +1,9 @@
+/**
+ * 参考:
+ * 「Three.js入門 手軽にWebGLを扱える3Dライブラリ」
+ * https://ics.media/entry/14771/
+ */
+
 import * as THREE from "three";
 
 import * as def from "./define.js";
@@ -17,20 +23,17 @@ renderer.setSize(width, height);
 renderer.setPixelRatio(window.devicePixelRatio || 1);
 const scene = new THREE.Scene();
 
-// カメラを作成
 const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-// カメラの初期座標を設定（X座標:0, Y座標:0, Z座標:0）
 camera.position.set(0, 0, 1000);
 
-// 箱を作成
-//const geometry = new THREE.SphereGeometry(500, 30, 5000);
+const geometry = new THREE.SphereGeometry(500, 30, 5000);
 const material = new THREE.MeshPhysicalMaterial({
     color: 0x00ffff,
     metalness: 1,
     roughness: 0.1,
-    transmission: 1,  // 透過
-    thickness: 10,     // 厚みがあると屈折がわかる
-    ior: 0.8,         // 屈折率
+    transmission: 1,  
+    thickness: 10,     
+    ior: 0.8,         
     transparent: true
 });
 const box = new THREE.Mesh(geometry, material);
@@ -39,14 +42,12 @@ scene.add(box);
 //const box2 = new THREE.Mesh(geometry2, material);
 //scene.add(box2);
 
-// 平行光源
 const light = new THREE.DirectionalLight(0xFFFFFF);
-light.intensity = 200; // 光の強さを倍に
-light.position.set(1, 1, 1); // ライトの方向
-// シーンに追加
+light.intensity = 200; 
+light.position.set(1, 1, 1); 
+
 scene.add(light);
 
-// レンダリング
 renderer.render(scene, camera);
 window.addEventListener('resize', () => {
     updateContainerSize();
@@ -66,7 +67,7 @@ def.mainBoard.addEventListener('scroll', () => {
         1, 
         1 - 3*def.mainBoard.scrollTop / height,
         1
-    ); // ライトの方向
+    ); 
     console.log("aiueo", 
         def.mainBoard.scrollTop,
         3*def.mainBoard.scrollTop / height);

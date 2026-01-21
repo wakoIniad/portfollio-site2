@@ -139,6 +139,10 @@ header > .item {
     filter: blur(0.5px) contrast(250%) saturate(160%)  drop-shadow(-10px -10px 10px red);
 }
 
+header > .item > a {
+    color: white;
+}
+
 header > .item:nth-child(1) { transform: var(--common) skewY( 1deg); }
 header > .item:nth-child(2) { transform: var(--common) skewY(10deg); }
 header > .item:nth-child(3) { transform: var(--common) skewY(20deg); }
@@ -148,6 +152,10 @@ header > .item:hover {
     filter: blur(0.5px) contrast(250%) saturate(160%)  drop-shadow(1px 1px 10px red);
     transform: var(--common) skewY( 1deg) translate(-9px, -9px);
     cursor: pointer;
+}
+
+header > .item:hover::before {
+    content: ">";
 }
 
 .vr {
