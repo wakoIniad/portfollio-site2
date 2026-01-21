@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     background:rgb(26, 34, 52);
     color: white;
+    overflow: hidden;
 }
 
 body > * {
@@ -25,7 +26,7 @@ body > * {
 body header, body main, body footer {
     text-align: center;
 }
-@media (min-width: 400px) {
+@media (min-width: 450px) {
     body header {
         flex: 2;
     }
@@ -39,7 +40,7 @@ body header, body main, body footer {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     body header {
         display: none;
     }
@@ -93,7 +94,7 @@ main {
     align-items: center;
 }
 
-@media (max-width: 300px) {
+@media (max-width: 450px) {
     .board > .board-content {
         padding-inline: 0px;
     }
@@ -149,6 +150,13 @@ header > .item {
     background-color: rgb(32, 255, 218);
     display: inline-flex;
     flex-direction: column;
+}
+
+.null-cap {
+    width: 0.17em;
+    height: 1em;
+    margin-inline: 0.2em;
+    display: inline;
 }
 
 .v-marker.orange {
@@ -253,4 +261,14 @@ header > .item {
     width: 100vh;
     transform: rotate(90deg) translate(50%, 0%);
     z-index:1;
+}
+
+.multiple-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4px;
+    grid-auto-flow: dense;
+}
+.multiple-container > *:last-child {
+  grid-column: span 2;
 }
