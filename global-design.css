@@ -119,10 +119,11 @@ main {
 }
 
 header {
-    background: rgb(25, 26, 36);
+    /*background: rgb(25, 26, 36);*/
     display: flex;
     align-items: center;
     justify-content: center;
+    --common: rotate(-90deg) skewX(10deg);
 }
 
 header.rotated-ui {
@@ -133,6 +134,20 @@ header > .item {
     padding-inline: 16px;
     padding-block: 0;
     flex: 1;
+    text-decoration: underline;
+    transform:  skewY(0deg);
+    filter: blur(0.5px) contrast(250%) saturate(160%)  drop-shadow(-10px -10px 10px red);
+}
+
+header > .item:nth-child(1) { transform: var(--common) skewY( 1deg); }
+header > .item:nth-child(2) { transform: var(--common) skewY(10deg); }
+header > .item:nth-child(3) { transform: var(--common) skewY(20deg); }
+header > .item:nth-child(4) { transform: var(--common) skewY(10deg); }
+
+header > .item:hover {
+    filter: blur(0.5px) contrast(250%) saturate(160%)  drop-shadow(1px 1px 10px red);
+    transform: var(--common) skewY( 1deg) translate(-9px, -9px);
+    cursor: pointer;
 }
 
 .vr {
