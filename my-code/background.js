@@ -7,7 +7,6 @@
 import * as THREE from "three";
 import * as def from "./define.js";
 
-/*
 const renderer = new THREE.WebGLRenderer({
   canvas: def.mainBackgroundCanvas, 
   alpha: true 
@@ -81,4 +80,4 @@ def.mainBoard.addEventListener('scroll', () => {
         def.mainBoard.scrollTop,
         3*def.mainBoard.scrollTop / height);
     renderer.render(scene, camera);
-})*/
+})
