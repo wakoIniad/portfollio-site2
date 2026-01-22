@@ -1,4 +1,4 @@
-function FadeAnimation(targetElm, maskElmIdMap={
+function FadeAnimation(targetElm, callback=()=>{}, maskElmIdMap={
     backgroundID:"fade-mask-bg",
     targetID:"fade-mask-target",
     containerID:"fade-anim-mask",
@@ -131,6 +131,7 @@ function FadeAnimation(targetElm, maskElmIdMap={
         if(usingIntervalId)clearInterval(usingIntervalId);
         gojasReset();
         targetElm.classList.remove(fadeAnimClassName);
+        callback();
     }
 
     //window.StartAnimation = StartAnimation;
