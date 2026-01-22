@@ -251,6 +251,14 @@ header > .item:hover::before {
     display: none;
 }
 
+#full-screen-main-multi-ui-container.smartphone-overlay-menu:has(.active-ui) {
+    background-color: rgba(26, 34, 52, .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
 #full-screen-main-multi-ui-container:has(.expanded) {
     background-color: rgba(26, 34, 52, 0.6);
     display: flex;
@@ -504,7 +512,7 @@ header > .item:hover::before {
 }
 
 
-.smartphone-overlay-menu {
+.smartphone-overlay-menu-content {
     display: none;
     width: 100%;
     height: 100%;
@@ -514,6 +522,9 @@ header > .item:hover::before {
 }
 
 
-.smartphone-overlay-menu.active-ui {
-    display: block;
+.smartphone-overlay-menu-content.active-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

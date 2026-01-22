@@ -1,4 +1,4 @@
-
+/*
 function shinamonoHandler() {
     console.log("shinamonoHandler");
     const btn = document.getElementById("smartphone-overlay-button");
@@ -9,4 +9,4 @@ function shinamonoHandler() {
     })
 }
 document.onload = shinamonoHandler();
-if(document.readyState === 'complete')shinamonoHandler();
+if(document.readyState === 'complete')shinamonoHandler();*/

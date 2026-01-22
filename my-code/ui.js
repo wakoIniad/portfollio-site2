@@ -27,16 +27,18 @@ function changeFullScreenUiMode(className, elm) {
 }
 
 class FSUISetting {
-    static hideOnClicked = false;
+    static hideOnClicked = true;//false;
 }
 defs.FullScreenUiContainer.addEventListener("click", (e)=>{
+    console.log("FULL SCREEN CONTAINER WAS CLICKED")
     if(FSUISetting.hideOnClicked) {
-        FSUISetting.hideOnClicked = false;
+        //FSUISetting.hideOnClicked = false;
         defs.FullScreenUiContainer.style.display = "none";
-        if(incontainerElm) {
-            incontainerElm.classList.remove('active-ui');
-            incontainerElm = null;
-        }
+        //if(incontainerElm) {
+        //    //incontainerElm.classList.remove('active-ui');
+        //    //defs.FullScreenUiContainer.remove(incontainerElm);
+        //    incontainerElm = null;
+        //}
     }
 })
 
@@ -55,10 +57,24 @@ document.querySelectorAll(".expand-on-click").forEach(elm => {
             showFullScreenContainer();
             FadeAnimation(defs.FullScreenUiContainer);
 
-            FSUISetting.hideOnClicked = true;
+            //FSUISetting.hideOnClicked = true;
         //}
     })
 })
 
 defs.mainBoard.addEventListener('scroll', () => {
 })
+
+
+function shinamonoHandler() {
+    console.log("shinamonoHandler");
+    const btn = document.getElementById("smartphone-overlay-button");
+    const menuElm = document.getElementById("smartphone-overlay-menu");
+    btn.addEventListener('click', function(e) {
+        console.log("CLICKED")
+        showFullScreenContainer();
+        changeFullScreenUiMode('smartphone-overlay-menu', menuElm);
+    })
+}
+document.onload = shinamonoHandler();
+if(document.readyState === 'complete')shinamonoHandler();
