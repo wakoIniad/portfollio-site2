@@ -1204,9 +1204,10 @@ useStep,
  gagaga_displacement,
  ...col
 ) {
+  console.log("COLCOL",col)
   if(useStep < 0)return;
   if(useStep>anim_step+gagaga_step)return;
-  const korezettaiIro = col.splice(0,1);
+  const korezettaiIro = col.splice(0,1)[0];
   const ss = 0;
   const targetSpeed = 2*PI/(anim_step*(sprate-1));
   const s = ss-(useStep*targetSpeed*sprate);
@@ -1218,7 +1219,7 @@ useStep,
         
         (~~(prr*numOf_gagaga
       ))/ numOf_gagaga )**0.5;//2;
-      
+      console.log("COLCOL2", [korezettaiIro,...col,(col.slice(-1)||255)*(1-k)**2]);
       stroke(korezettaiIro,...col,(col.slice(-1)||255)*(1-k)**2);
       circle(...cc, rr + 
          k * gagaga_displacement);
@@ -1256,6 +1257,8 @@ function mergedEye(thisFrame) {
   const expo = .5;//2.3;
   const mysff = (useFrame - sec)/(sec2+sec3);
   const defAlphaEye = mabutanoUranoIro[3];//196;
+  
+  //drawingContext.filter = `blur(1px)`;
   if(thisFrame < sec) {
     testt = true;
     stroke(...mabutanoUranoIro.slice(0,3), defAlphaEye);
@@ -1268,6 +1271,9 @@ function mergedEye(thisFrame) {
     fillEyelid(sec+sec2, ...param);
     //background(255, 255-10*(frameCount/60-sec))
   }
+  ///drawingContext.filter = `none`;
+  //filter(BLUR);
+
   
   strokeWeight(16);
   noFill();
@@ -1285,7 +1291,7 @@ function mergedEye(thisFrame) {
     gagaga_step,
     gagaga_displacement,
   ]
-  kurultu(thisFrame-32,[width/2,height/2],...params,255);
+  kurultu(thisFrame-32,[width/2,height/2],...params,100,255,200);
   //strokeWeight(8);
   const params2 = [
     rr*1.5 ,
@@ -1295,7 +1301,7 @@ function mergedEye(thisFrame) {
     gagaga_step,
     gagaga_displacement,
   ]
-  kurultu(thisFrame-32,[width/2,height/2],...params2,255);
+  kurultu(thisFrame-32,[width/2,height/2],...params2,100,255,200);
 
   strokeCap(ROUND);
 }
