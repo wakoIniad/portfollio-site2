@@ -41,6 +41,10 @@ body > * {
 body header, body main, body footer {
     text-align: center;
 }
+
+body footer {
+    max-height: 2em;
+}
 @media (min-width: 450px) {
     body header {
         flex: 2;
@@ -109,6 +113,11 @@ main {
     align-items: center;
 }
 
+
+.thin-item {
+    display: none !important;
+}
+
 @media (max-width: 450px) {
     .board > .board-content {
         padding-inline: 0px;
@@ -118,7 +127,7 @@ main {
     }
 
     .thin-item {
-        display: block;
+        display: block !important;
     }
 }
 
@@ -326,4 +335,185 @@ header > .item:hover::before {
 }
 .multiple-container > *:last-child {
   grid-column: span 2;
+}
+
+
+
+
+
+
+.triangle {
+  width: var(--t-menu-item-size);
+  height: calc(sqrt(3) * var(--t-menu-item-size) / 2);
+  display: block;
+  background: rgba(30,30,30,.5);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*filter:
+    drop-shadow(0 2px 4px rgb(63, 6, 89, 0.5))
+    drop-shadow(0 10px 20px rgb(211, 226, 237));*/
+
+  
+  transition: --opac 0.5s ease-out;
+  --col:  203, 199, 247;/*0,255,255;*/
+  --opac: 0;
+  --opac2: 0.7;
+  --opac3: 0;
+  --col2: rgb(30,30,30,var(--opac2));/*rgb(247, 199, 236);*/
+  background-color: var(--col2);
+  background:   linear-gradient( 60deg, transparent 60%, rgba(var(--col),var(--opac)) 66%, transparent 70%, transparent 72%), 
+                linear-gradient(-60deg, transparent 60%, rgba(var(--col),var(--opac)) 66%, transparent 70%, transparent 72%), 
+                linear-gradient(var(--col2) 0%, var(--col2) 80%, rgba(var(--col),var(--opac)) 100%);
+}
+
+/*
+  CSS Haudini
+  https://developer.mozilla.org/ja/docs/Web/CSS/Guides/Properties_and_values_API/Houdini
+*/
+@property --opac {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --opac3 {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.triangle:hover {
+  --opac: 1;
+  
+  background:   linear-gradient( 60deg, transparent 60%, rgba(var(--col),var(--opac)) 66%, transparent 70%, black 100%), 
+                linear-gradient(-60deg, transparent 60%, rgba(var(--col),var(--opac)) 66%, transparent 70%, black 100%), 
+                linear-gradient(var(--col2) 0%, var(--col2) 80%, rgba(var(--col),var(--opac)) 100%);
+}
+
+
+.triangle::after {
+  content: "";
+  display: none;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 0.65s;
+  transition-timing-function: ease;
+  position: absolute;
+}
+
+/*.triangle:hover::after {
+  content: "";
+  width: var(--t-menu-item-size);
+  height: calc(sqrt(3) * var(--t-menu-item-size) / 2);
+  display: block;
+  background: rgba(230,230,230,0.85);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform: scale(1.25);
+  /*background-color: rgb(248, 203, 245);
+  background-color: rgb(67, 5, 62);*/
+/*}*/
+
+.triangle:active {
+  
+  background-color: rgb(0, 250, 212);
+  background-color: rgb(149, 255, 239);
+  background-color: rgb(248, 203, 245);
+  /*filter:
+    drop-shadow(0 2px 4px rgb(63, 6, 89, 0.5))
+    drop-shadow(0 10px 20px rgb(211, 226, 237));*/
+}
+
+.triangle-menu-container {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  width: calc(var(--t-menu-item-size) * 2 + var(--t-menu-padding) * 3);
+  height: calc(sqrt(3) * var(--t-menu-item-size) + var(--t-menu-padding) * 3);
+  margin: 0;
+  padding: 0;
+  /*background-color: gray;*/
+  background-color: none;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(180deg);
+}
+
+.reversed-text {
+  transform: rotate(180deg) translate(50%,50%);
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  font-size: 2em;
+}
+
+.p5-choikekkougomimenyubutton {
+  margin-left: calc(75%);
+  z-index: var(--on-canvas-z);
+  margin-top: -10px;
+  /*margin-top: calc(100% - 30%  - 0px);*/
+  /*margin-bottom: calc(30%  - 0px);*/
+}
+
+:root {
+  --main-accent: rgb(232, 111, 157);
+  --main-accent-light: rgb(235, 179, 201);
+  --padding-unit: 16px;
+  --t-menu-padding: 4px;
+  --t-menu-item-size: 40px;
+  --accent-pink: rgb(204, 161, 234);
+  --main-white-color: rgb(230,230,230);
+  --current-ocean-color: ;
+}
+
+
+.menu-item {
+  position: absolute;
+  display: block;
+  font-family: sans-serif;
+  color: rgba(200,200,200);
+  font-size: calc(var(--t-menu-item-size)/5);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.t1 {
+  left: var(--t-menu-padding);
+  bottom: calc(var(--t-menu-padding) / sqrt(3) );
+}
+.t2 {
+  right: var(--t-menu-padding);
+  bottom: calc(var(--t-menu-padding) / sqrt(3) );
+}
+.t3 {
+  top: calc(var(--t-menu-padding) * sqrt(3) );
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.noa {
+  text-decoration: none;
+}
+
+
+.smartphone-overlay-menu {
+    display: none;
+    width: 100%;
+    height: 100%;
+    display: black;
+    font-size: 2.5em;
+    font-color: white;
+}
+
+
+.smartphone-overlay-menu.active-ui {
+    display: block;
 }

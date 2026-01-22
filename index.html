@@ -16,12 +16,13 @@
       }
     </script>-->
     
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>-->
     
     <script src="other-author-lib/RaumZeit/Marchingsquares.js"></script>
-    <script src="my-code/fade.js" type="module"></script>
-    <link href="my-code/global-design.css" rel="stylesheet">
-    <link href="my-code/ui-anim.css" rel="stylesheet">
+
+    <script src="my-code/fade.js"></script>
+    <link href="./my-code/global-design.css" rel="stylesheet">
+    <link href="./my-code/ui-anim.css" rel="stylesheet">
 
 </head>
 <body>    
@@ -66,7 +67,7 @@
             <div class="section">
               <div class="expand-on-click">
                 <div class="img-container">
-                  <img src="my-works/image.jpg" class="">
+                  <img src="./my-works/image.jpg" class="">
                 </div>
                 <div class="description">
                   <span class="v-marker"></span>これは、分け入っても分け入っても青い山
@@ -166,15 +167,25 @@
           <div id="myCanvas"></div>
 
         </div>
+        <div class="triangle-menu-container p5-choikekkougomimenyubutton triangle thin-item" id="smartphone-overlay-button">
+          <a><div class="menu-item"><section class="reversed-text">品物</section></div></a>
+        </div>
+        <div class="smartphone-overlay-menu" id="smartphone-overlay-menu">
+          aaaa<br>
+          aaaa<br>
+          aaaa
+        </div>
     </main>
     <footer style="background:yellow;color:rgb(60,60,60);">&copy; 2026 旻</footer>
     <div id="full-screen-main-multi-ui-container"></div>
-    <script type="module" src="my-code/define.js"></script>
     <!--<script type="module" src="my-code/background2.js"></script>-->
-    <script type="module" src="my-code/ui.js"></script>
-    <!--<script src="other-author-lib/p5js/p5.js"></script>-->
+    
+    <script src="./my-code/define.js"></script>
+    <script src="./my-code/ui.js"></script>
+    <script src="./other-author-lib/p5js/p5.js"></script>
 
-    <script type="module" src="my-code/sink-to-bottom.anim.js"></script>
-    <script type="module" src="my-works/png-blob1.js"></script>
+    <script src="./my-code/sink-to-bottom.anim.js"></script>
+    <script src="./my-works/png-blob1.js"></script>
+    <script src="./my-code/overlay-menu.js"></script>
 </body>
 </html>

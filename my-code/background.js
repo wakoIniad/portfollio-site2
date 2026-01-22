@@ -4,8 +4,8 @@
  * https://ics.media/entry/14771/
  */
 
-import * as THREE from "three";
-import * as def from "./define.js";
+//import * as THREE from "three";
+//import * as def from "./define.js";
 
 const renderer = new THREE.WebGLRenderer({
   canvas: def.mainBackgroundCanvas, 

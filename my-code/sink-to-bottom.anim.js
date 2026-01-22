@@ -1,5 +1,5 @@
-import * as def from "./define.js";
-import {zeta_tochu} from '../my-works/png-blob1.js';
+//import * as def from "./define.js";
+//import {zeta_tochu} from '../my-works/png-blob1.js';
 const Bubbles = [];
 
 let nlast = null;
@@ -227,9 +227,9 @@ let charaIMG;// = document.getElementById("p5src");
 let oceanIMG;
 async function preload() {
   charaIMG    = loadImage(
-    'my-works/tochu_cmp.png'
+    //'my-works/tochu_cmp.png'
  //   'https://drive.google.com/file/d/1W44ewlh8SzC_K2wQ-KbJYtfIZKNWj6HI/view?usp=sharing'
-    //zeta_tochu
+    zeta_tochu
   );
   //await avoidCorsErrLoadImage("my-works/tochu.png");//select("#my_tochu");//document.getElementById("my_tochu");
   //loadImage("my_tochu.png");

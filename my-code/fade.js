@@ -1,4 +1,4 @@
-export function FadeAnimation(targetElm, maskElmIdMap={
+function FadeAnimation(targetElm, maskElmIdMap={
     backgroundID:"fade-mask-bg",
     targetID:"fade-mask-target",
     containerID:"fade-anim-mask",
