@@ -169,8 +169,23 @@ header > .item:hover {
     cursor: pointer;
 }
 
+header > .item::after {
+  content: "";
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  pointer-events: auto; 
+}
+
+header > .item:hover::after {
+  content: "";
+  position: absolute;
+  top: -32px; left: -32px; right: -32px; bottom: -32px;
+  pointer-events: auto; 
+}
+
 header > .item:hover::before {
-    content: ">";
+  content: ">";
+  position: static;
 }
 
 .vr {
