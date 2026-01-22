@@ -165,6 +165,8 @@ header > .item:nth-child(4) { transform: var(--common) skewY(10deg); }
 
 header > .item:hover {
     filter: blur(0.5px) contrast(250%) saturate(160%)  drop-shadow(1px 1px 10px red);
+    /*
+    filter: blur(0.5px) contrast(250%) saturate(160%)  drop-shadow(-10px -10px 5px red);*/
     transform: var(--common) skewY( 1deg) translate(-9px, -9px);
     cursor: pointer;
 }
