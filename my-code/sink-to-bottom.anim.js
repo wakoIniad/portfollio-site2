@@ -226,7 +226,11 @@ let charaIMG;// = document.getElementById("p5src");
 //let cloudIMG;
 let oceanIMG;
 async function preload() {
-  charaIMG    = loadImage(zeta_tochu);
+  charaIMG    = loadImage(
+    'my-works/tochu_cmp.png'
+ //   'https://drive.google.com/file/d/1W44ewlh8SzC_K2wQ-KbJYtfIZKNWj6HI/view?usp=sharing'
+    //zeta_tochu
+  );
   //await avoidCorsErrLoadImage("my-works/tochu.png");//select("#my_tochu");//document.getElementById("my_tochu");
   //loadImage("my_tochu.png");
   //illustACBG  = await avoidCorsErrLoadImage("illust_ac_karimono.jpg");//select("#illust_ac_karimono");//document.getElementById("illust_ac_karimono");
@@ -339,7 +343,7 @@ function drawChara(y=0) {
   //for(let i = 0;i < 10;i++) {
   const tmp = charaIMG;
   console.log("MAIE",charaIMG);
-  warappedImage(charaIMG, 0, 0, (charaIMG?.width??0)*s, (charaIMG?.height??0)*s);
+  if(charaIMG)warappedImage(charaIMG, 0, 0, (charaIMG?.width??0)*s, (charaIMG?.height??0)*s);
   //}
   pop();
   noch = false;
@@ -657,7 +661,8 @@ function gradRec(thick, spx, spy, long, dy, colorFrom, colorTo, f=2) {
    }
    noStroke();
 }
-const mabutanoUranoIro = [65,0,50,128];
+//const mabutanoUranoIro = [65,0,50,128];
+const mabutanoUranoIro = [100,0,80,128];
 function draw() {
   //if(!window.p5myanim)return;
 clear()
@@ -963,9 +968,10 @@ clear()
   if(inthewater) {
     //background(0, 0, 70, 92);
     background(0, 30, 70, 102);
-  } else {
+  }/* else {
     background(...mabutanoUranoIro);
-  }
+  }*/
+ if(!testt)background(...mabutanoUranoIro);
     //blendMode(ADD);
   if(noch)drawChara(charaY);
   bgCount = 0;
@@ -1237,6 +1243,7 @@ function fillEyelid(t, a=4, b=4, w=4) {
   }
 }
 
+let testt = false;
 function mergedEye(thisFrame) {
   
   const sec = 1.8*45;
@@ -1250,6 +1257,7 @@ function mergedEye(thisFrame) {
   const mysff = (useFrame - sec)/(sec2+sec3);
   const defAlphaEye = mabutanoUranoIro[3];//196;
   if(thisFrame < sec) {
+    testt = true;
     stroke(...mabutanoUranoIro.slice(0,3), defAlphaEye);
     fillEyelid(useFrame, ...param);
   } else if(thisFrame - sec < sec2) { 
