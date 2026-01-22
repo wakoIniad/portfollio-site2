@@ -3,7 +3,7 @@
  * 「Three.js入門 手軽にWebGLを扱える3Dライブラリ」
  * https://ics.media/entry/14771/
  */
-
+/*
 import * as THREE from "three";
 //import { GLTFLoader } from "GLTFLoader"; 
 //import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
@@ -43,7 +43,7 @@ const material = new THREE.MeshPhysicalMaterial({
 //scene.add(box);
 const geometry2 = new THREE.BoxGeometry(50000, 3000, 500);
 const box2 = new THREE.Mesh(geometry2, material);
-scene.add(box2);
+//scene.add(box2);
 
 const light = new THREE.DirectionalLight(0x00FFCC);
 light.intensity = 50; 
@@ -69,18 +69,18 @@ window.addEventListener('resize', () => {
     renderer.render(scene, camera);
 });
 
-/**参考
- * 「JavaScriptで3Dモデル(gltf形式)をWebページ上に表示する方法」
- * https://qiita.com/enumura1/items/c62f15c4fbeb541fa830
- */
-//const loader = new GLTFLoader();
-//loader.load('my-works/ghost_zeta_test1.glb', function (gltf) {
-//    const model = gltf.scene;
-//    model.scale.set(100, 100, 100);
-//    gltf.scene.position.set(0, 0, 0);
-//    scene.add(model);
-//    console.warn(model, "Model");
-//});
+//参考
+//「JavaScriptで3Dモデル(gltf形式)をWebページ上に表示する方法」
+//https://qiita.com/enumura1/items/c62f15c4fbeb541fa830
+
+const loader = new GLTFLoader();
+loader.load('my-works/ghost_zeta_test1.glb', function (gltf) {
+    const model = gltf.scene;
+    model.scale.set(100, 100, 100);
+    gltf.scene.position.set(0, 0, 0);
+    scene.add(model);
+    console.warn(model, "Model");
+});
 
 let i = 0;
 def.mainBoard.addEventListener('scroll', () => {
@@ -98,12 +98,13 @@ def.mainBoard.addEventListener('scroll', () => {
     renderer.render(scene, camera);
 })
 
-//const controls = new OrbitControls(camera, renderer.domElement);
-//controls.update();
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.update();
 
-//function animationLoop() {
-//    requestAnimationFrame(animationLoop);
-//    controls.update();
-//    renderer.render(scene, camera);
-//}
-//animationLoop();
+function animationLoop() {
+    requestAnimationFrame(animationLoop);
+    controls.update();
+    renderer.render(scene, camera);
+}
+animationLoop();
+ */

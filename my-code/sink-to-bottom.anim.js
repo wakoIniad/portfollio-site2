@@ -103,6 +103,9 @@ async function avoidCorsErrLoadImage(src) {
     htmlImg.onload = () => {
       const res = createImage(htmlImg.naturalWidth, htmlImg.naturalHeight);
       res.drawingContext.drawImage(htmlImg, 0, 0);
+      res.width = htmlImg.naturalWidth;
+      res.height = htmlImg.naturalHeight;
+      //console.log("POQ",htmlImg.naturalWidth,htmlImg.naturalHeight);
       resolve(res);
     };
   });
@@ -234,8 +237,11 @@ async function preload() {
 const INIT_UPDATE_COUNT = 256;
 let defP = 30;
 let cc;
+let width, height;
 function setup() {
   cc = createCanvas(200, 400);
+  
+  ({width, height} = cc);
   //print(document.getElementById("sink-who"))
   cc.style('position', 'absolute');
   cc.style('top', '0');
@@ -331,7 +337,7 @@ function drawChara(y=0) {
   rotate(charaLean);
   //for(let i = 0;i < 10;i++) {
   const tmp = charaIMG;
-  console.log(charaIMG);
+  console.log("MAIE",charaIMG);
   warappedImage(charaIMG, 0, 0, (charaIMG?.width??0)*s, (charaIMG?.height??0)*s);
   //}
   pop();
