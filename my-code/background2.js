@@ -3,7 +3,7 @@
  * 「Three.js入門 手軽にWebGLを扱える3Dライブラリ」
  * https://ics.media/entry/14771/
  */
-/*
+
 import * as THREE from "three";
 //import { GLTFLoader } from "GLTFLoader"; 
 //import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
@@ -107,4 +107,3 @@ function animationLoop() {
     renderer.render(scene, camera);
 }
 animationLoop();
- */
