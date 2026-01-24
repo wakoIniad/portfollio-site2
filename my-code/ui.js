@@ -11,10 +11,10 @@ function hideFullScreenContainer() {
 }
 
 function fadeAnimSelfWrapper(elm) {
-    FadeAnimation(elm/*@**@, ()=>{
+    FadeAnimation(elm, ()=>{
         console.log("USINGAA DESU??", containerIsUsing);
         containerIsUsing = false;
-    }*/);
+    });
 }
 console.log("DEF",def,defs);
 let usingType = null;
@@ -53,7 +53,7 @@ defs.FullScreenUiContainer.addEventListener("click", (e)=>{
 let containerIsUsing = false;
 function foregroundTypeUIHandler(realHandler) {
     console.log("USINGAA<",containerIsUsing);
-    //@**@if(containerIsUsing)return;
+    if(containerIsUsing)return;
     containerIsUsing = true;
     realHandler();
 }

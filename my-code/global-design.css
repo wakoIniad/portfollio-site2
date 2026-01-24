@@ -180,15 +180,14 @@ header > .item:hover {
     cursor: pointer;
 }
 
-header > .item::after {
+/*header > .item::after {
   content: "";
   position: absolute;
   top: -8px; left: -8px; right: -8px; bottom: -8px;
   pointer-events: auto; 
-}
+}*/
 
-header > .item:hover::after {
-  content: "";
+header > .item:hover > a > .hitobj {
   position: absolute;
   top: -32px; left: -32px; right: -32px; bottom: -32px;
   pointer-events: auto; 
@@ -530,4 +529,20 @@ header > .item:hover::before {
     background-color: rgba(26, 34, 52, .9);
     font-size: 2.5em;
     font-color: white;
+}
+
+div.margin-for-background {
+    display: none;
+}
+div.margin-for-background.a1 {
+    height: 20vw;
+}
+div.margin-for-background.a2 {
+    height: 20vw;
+}
+@media (min-width: 100px) {
+    div.margin-for-background {
+        display: block;
+        width: 100%;
+    }
 }
