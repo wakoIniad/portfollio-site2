@@ -5,14 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!--辞書のサイズが小さいものを選択-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/tiny-segmenter@0.2.0/dist/tiny-segmenter-0.2.0.min.js"></script>
-    <script src="other-author-lib/tiny-segmenter@0.2.0/tiny-segmenter-0.2.0.js"></script>-->
 </head>
 <body style="height:100%;">
     <form id="searchbox-form">
        <input placeholder="言語モデルを使った検索" id="searchbox">
     </form>
-    <!--<script type="module" src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js"></script>-->
+    <hr>
+    <form id="visitor-form">
+        属性から自動選択
+        <br>
+        <select id="attribute1">
+          <option value="a">ゲームを見たい</option>
+          <option value="b">音楽を見たい</option>
+          <option value="b">絵をみたい</option>
+          <option value="b">プログラムをみたい</option>
+        </select>
+        <br>
+        <select id="attribute2">
+          <option value="a">実用性</option>
+          <option value="b">雰囲気</option>
+        </select>
+    </form>
+    <span>このセクションは自動生成されています。</span>
+    <div id="works-container" style="display: flex;flex-wrap: wrap;height:100%;">
+        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">
+            Art(Music, Illust)
+            <img src="my-works/for-search/image2.png">
+        </div>
+        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">
+            Programing 
+        </div>
+        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">
+            Other
+        </div>
+    </div>
+    
+    <style>
+        #works-container img {
+            max-width: 100%;
+        }
+
+        :root {
+            --linker-width: 4px;
+            --unit: 0.1px;
+            --flow-content-padding: 60px;
+            --flow-item-padding: 60px;
+            --max-item-height: 200px;
+            --def-width: calc(100vh/400 * 200);
+            --linker-overlap: 16px;
+            --mini-padding-unit: 4px;
+
+            --tentative-color: 200, 200, 200;
+            --link-color: rgb(126, 215, 197);
+            
+            --main-accent: rgb(232, 111, 157);
+            --main-accent-light: rgb(235, 179, 201);
+            --padding-unit: 16px;
+            --t-menu-padding: 4px;
+            --t-menu-item-size: 40px;
+            --accent-pink: rgb(204, 161, 234);
+            --main-white-color: rgb(230,230,230);
+            --current-ocean-color: ;
+        }
+        .flow-stack {
+            background-color: rgba(220,220,220);
+            width: fit-content;
+            height: fit-content;
+            padding: var(--mini-padding-unit);
+            overflow: hidden;
+            border-radius: 9px;
+        }
+
+        .flow-stack-item {
+            background: var(--main-accent);
+            display: inline-block;
+            margin: var(--mini-padding-unit);
+            padding: var(--mini-padding-unit);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .flow-label {
+            border-radius:5%; 
+            width: fit-content;
+            font-size: 1.5em;
+            color: var(--main-white-color);
+        }
+    </style>
     <script type="module">
         import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
 
@@ -27,10 +106,10 @@
         /*もしかしたら今後AIの登場でスペース区切りの検索に慣れてない人も出てくるかもなので分かち書きに変換したうえで分割する*/
         
         const candidate = await Promise.all([
-            ["海 なんで", "pic/sea.png"],
-            ["雪 木", "pic/puddl.png"],
+            ["海と人の暗い雰囲気の絵", "pic/tochu.jpg"],
+            ["キャラクター CG 3Dモデル 写真", "pic/imahe2.png"],
         ].map(async(v)=>[...v, (await pipe(v[0], {pooling: 'mean', normalize: true})).data]));
-
+        
         searchBoxForm.addEventListener('submit', (e)=>{
             e.preventDefault();
             (async()=>{
@@ -54,14 +133,5 @@
             );
         }
     </script>
-    <div>ランダム毎カテゴリ</div>
-    <div style="display: flex;flex-wrap: wrap;height:100%;">
-        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">Art(Music, Illust)</div>
-        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">Programing </div>
-        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">Other</div>
-    </div>
-    <div>
-        <div class="絵 海"></div>
-    </div>
 </body>
 </html>
