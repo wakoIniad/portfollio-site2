@@ -425,20 +425,17 @@ header > .item:hover::before {
 }
 #full-screen-main-multi-ui-container:has(.expanded)::before{
     --blur-val:10px;
-    backdrop-filter: blur(var(--blur-val));
-
-}
-#full-screen-main-multi-ui-container:has(.expanded)::before{
-    content: "";
-    width: 100%;
-    height: 100%;
     position: absolute;
+    /*backdrop-filter: blur(10px);*/
+    background-color: rgb(255,255,255,0.5);
+    filter:blur(64px);
+    width: 100%;
+    content: "";
+    height: 100%;
     top: 0;
-    left: 0;*/
-    /*background-color: rgb(255,255,255,0.5);
-    filter:blur(64px);*/
-/*    z-index: 0;
-}*/
+    left: 0;
+    z-index: -1;
+}
 #full-screen-main-multi-ui-container:has(.expanded) {
     background-color: rgba(26, 34, 52, 0.6);
     display: flex;
