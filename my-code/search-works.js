@@ -52,7 +52,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["awarded art paint, warm coloring, air-plane, park", 
+    ["awarded art paint", 
         new Item(
             {
                "label": "絵",
@@ -63,7 +63,7 @@ const candidate = await Promise.all([
             }
         ),
     ],
-    ["theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
+    ["video original-character theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
         new Item(
             {
                 "label": "ゲーム",
@@ -74,7 +74,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["cornel-box CG global-illmunation liminal-space Python openGL horror dark",
+    ["cornel-box CG global-illmunation liminal-space Python openGL",
         new Item(
             {
                 "label": "CG",
@@ -85,7 +85,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["music daw piano FLStuduio composition sound-effect sad nostalgy",
+    ["music, game-music degital-audio-work-space FlStuduio composition sound-effect sad nostalgy reminiscence fear beautiful",
         new Item(
             {
                 "label": "音楽",

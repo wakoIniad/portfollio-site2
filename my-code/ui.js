@@ -47,6 +47,8 @@ defs.FullScreenUiContainer.addEventListener("click", (e)=>{
         //    //defs.FullScreenUiContainer.remove(incontainerElm);
         //    incontainerElm = null;
         //}
+        /** フルスクリーンを閉じた後も音が流れ続けちゃうことに対する*応急処置* */
+        defs.FullScreenUiContainer.innerHTML = "";
     }
 })
 
