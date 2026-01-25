@@ -426,9 +426,9 @@ header > .item:hover::before {
 #full-screen-main-multi-ui-container:has(.expanded)::before{
     --blur-val:10px;
     position: absolute;
-    /*backdrop-filter: blur(10px);*/
-    background-color: rgb(255,255,255,0.5);
-    filter:blur(64px);
+    backdrop-filter: blur(10px);
+    /*background-color: rgb(255,255,255,0.5);
+    filter:blur(64px);*/
     width: 100%;
     content: "";
     height: 100%;
