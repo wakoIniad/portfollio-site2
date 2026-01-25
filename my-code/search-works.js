@@ -28,7 +28,7 @@ const searchBox = document.getElementById("searchbox");
 /*もしかしたら今後AIの登場でスペース区切りの検索に慣れてない人も出てくるかもなので分かち書きに変換したうえで分割する*/
         
 const candidate = await Promise.all([
-    ["プログラム JavaScript TypeScript Web Database アプリ ノート",         
+    ["program JavaScript TypeScript Database webapp noteapp",         
         new Item(
             {
                "label": "階層構造を簡単に操作できるノートアプリ",
@@ -39,7 +39,7 @@ const candidate = await Promise.all([
             }
         ),
     ],
-    ["SPAM スパム ツール プログラム Jvascript DiscordJS",
+    ["SPAM tool program chatbot Jvascript DiscordJS",
         new Item(
             {
                 "label": "SPAM防止BOT",
@@ -52,7 +52,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["飛行機の絵 アクリル絵の具 暖色 県知事賞", 
+    ["awarded art paint", 
         new Item(
             {
                "label": "絵",
@@ -63,7 +63,7 @@ const candidate = await Promise.all([
             }
         ),
     ],
-    ["ゲーム制作 寒色 遊び 画像処理(CG, C#, Blender) 音声処理(BGMやSE) 使用技術 プログラミング",
+    ["theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
         new Item(
             {
                 "label": "ゲーム",
@@ -74,18 +74,18 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["コーネルボックス CG 大域照明モデル リムナルスペース Python openGL",
+    ["cornel-box CG global-illmunation liminal-space Python openGL",
         new Item(
             {
-                "label": "pyOpenGL",
+                "label": "音楽",
                 "video": "my-works/content/oasis.mp4",
                 "stack": ["CG", "pyOpenGL"],
-                "description": "CGの授業の課題です。",
+                "description": "CGの授業の課題です。少し不気味なコーネルボックス。",
                 "detailed": "ダミーコンテンツ",
             }
         )
     ],
-    ["ゲーム音楽 Fl studuio 作曲 効果音 初心者",
+    ["music, game-music degital-audio-work-space FlStuduio composition sound-effect",
         new Item(
             {
                 "label": "pyOpenGL",
