@@ -47,6 +47,8 @@ defs.FullScreenUiContainer.addEventListener("click", (e)=>{
         //    //defs.FullScreenUiContainer.remove(incontainerElm);
         //    incontainerElm = null;
         //}
+        /**音楽とかが流れ続けるの防止するための*応急処置* */
+        defs.FullScreenUiContainer.innerHTML = "";
     }
 })
 

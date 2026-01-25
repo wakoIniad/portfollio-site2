@@ -63,7 +63,7 @@ const candidate = await Promise.all([
             }
         ),
     ],
-    ["original-character theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
+    ["video original-character theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
         new Item(
             {
                 "label": "ゲーム",
