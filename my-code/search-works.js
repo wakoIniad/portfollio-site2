@@ -63,7 +63,7 @@ const candidate = await Promise.all([
             }
         ),
     ],
-    ["theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
+    ["original-character theme:ocean game-developping cold-color playing image-processing (CG, C#, Blender)",
         new Item(
             {
                 "label": "ゲーム",
@@ -77,7 +77,7 @@ const candidate = await Promise.all([
     ["cornel-box CG global-illmunation liminal-space Python openGL",
         new Item(
             {
-                "label": "音楽",
+                "label": "CG",
                 "video": "my-works/content/oasis.mp4",
                 "stack": ["CG", "pyOpenGL"],
                 "description": "CGの授業の課題です。少し不気味なコーネルボックス。",
@@ -85,10 +85,10 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["music, game-music degital-audio-work-space FlStuduio composition sound-effect",
+    ["music, game-music degital-audio-work-space FlStuduio composition sound-effect sad nostalgy reminiscence fear beautiful",
         new Item(
             {
-                "label": "pyOpenGL",
+                "label": "音楽",
                 "audio": "my-works/content/minazoko-no-koto.mp3",
                 "stack": ["作曲", "音楽理論"],
                 "description": "音楽や効果音を作っています",
