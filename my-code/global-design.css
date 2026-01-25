@@ -411,26 +411,34 @@ header > .item:hover::before {
     justify-content: center;
     flex-direction: row;
 }
-
-body:has(#full-screen-main-multi-ui-container:has(.expanded){
-    filter:blur(64px);
-    width: 0 !important;
-    height: 0 !important;
-    position: fixed;
-    top: -10000000px;
+@property --blur-val {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+#full-screen-main-multi-ui-container {
+    --blur-val:0px;
+/*    transition-property: --blur-val;
+    transition-duration: 1s;
+    transition-timing-function: ease;*/
+    transition: all ease 10s;
+}
+#full-screen-main-multi-ui-container:has(.expanded)::before{
+    --blur-val:10px;
+    backdrop-filter: blur(var(--blur-val));
 
 }
 #full-screen-main-multi-ui-container:has(.expanded)::before{
     content: "";
-    filter:blur(64px);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
-    background-color: rgb(255,255,255,0.5);
-    z-index: 0;
-}
+    left: 0;*/
+    /*background-color: rgb(255,255,255,0.5);
+    filter:blur(64px);*/
+/*    z-index: 0;
+}*/
 #full-screen-main-multi-ui-container:has(.expanded) {
     background-color: rgba(26, 34, 52, 0.6);
     display: flex;
