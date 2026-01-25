@@ -547,7 +547,7 @@ div.margin-for-background.a3 {
 div.margin-for-background.a4 {
     height: 10vw;
 }
-@media (min-width: 100px) {
+@media (min-width: 0px) {
     div.margin-for-background {
         display: block;
         width: 100%;
