@@ -83,7 +83,7 @@ class Items {
                 ch.classList.add(Items.uniqueClassElmMap[type]);
                 if(type==='audio'/* || type==='video'*/) {
                     ch.controls = true;
-                    ch.classList.add(Item.uniqueClassElmMap['singleplay']);
+                    ch.classList.add(Items.uniqueClassElmMap['singleplay']);
                 }
                 if(type==='video') {
                     ch.autoplay = true;
