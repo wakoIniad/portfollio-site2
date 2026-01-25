@@ -3,22 +3,19 @@ document.getElementById("flow-container-scroll-marker").scrollIntoView({
     block: 'center'
 });
 
-//import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
+import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
+
 
 (async()=>{
 
-/** 
- * file://~~~~/models/にfetchするせいでcorsエラーが起きていたみたいなので、
- * huggingfaceのみにアクセスする設定。
- * (たまに動くのはhuggingfaceが勝っていたから？)
- *  */
-MrsXenova.env.allowLocalModels = false;
-MrsXenova.env.localModelPath = '';  
-MrsXenova.env.useBrowserCache = true;
 
-const pipeline = MrsXenova.pipeline;
+//const pipeline = MrsXenova.pipeline;
 
 const pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+const translator = await pipeline(
+  "translation",
+  "Xenova/opus-mt-ja-en"
+);
 
 //const segmenter = new TinySegmenter();
 const searchBoxForm = document.getElementById("searchbox-form");
@@ -52,7 +49,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["awarded art paint", 
+    ["awarded art paint, warm coloring, air-plane, park", 
         new Item(
             {
                "label": "絵",
@@ -74,10 +71,10 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["cornel-box CG global-illmunation liminal-space Python openGL",
+    ["cornel-box CG global-illmunation liminal-space Python openGL horror dark",
         new Item(
             {
-                "label": "音楽",
+                "label": "CG",
                 "video": "my-works/content/oasis.mp4",
                 "stack": ["CG", "pyOpenGL"],
                 "description": "CGの授業の課題です。少し不気味なコーネルボックス。",
@@ -85,10 +82,10 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["music, game-music degital-audio-work-space FlStuduio composition sound-effect",
+    ["music daw piano FLStuduio composition sound-effect sad nostalgy",
         new Item(
             {
-                "label": "pyOpenGL",
+                "label": "音楽",
                 "audio": "my-works/content/minazoko-no-koto.mp3",
                 "stack": ["作曲", "音楽理論"],
                 "description": "音楽や効果音を作っています",
@@ -99,21 +96,19 @@ const candidate = await Promise.all([
 ].map(async(v)=>[[(await pipe(v[0], {pooling: 'mean', normalize: true})).data,...await Promise.all(v[0].split(' ').map(async k=>(await pipe(k, {pooling: 'mean', normalize: true})).data))], ...v.slice(1)]));
 
 console.log("CAN", candidate);
-checkCorsMugr = true;
 searchBoxForm.addEventListener('submit', function(e){
     e.preventDefault();
     (async()=>{
-        const output = await pipe(searchBox.value, { pooling: 'mean', normalize: true });
-        console.log(output.data);
+        const translatedToEn = (await translator([searchBox.value]))[0].translation_text;
+        console.log(translatedToEn,"ENE")
+        const output = await pipe(translatedToEn, { pooling: 'mean', normalize: true });
+        console.log(translatedToEn, output.data);
         //const splitted = searchBox.value.split(/\s/).reduce((res,v)=>[...segmenter.segment(v), ...res],[]);
         let target = candidate.map(c=>[c[0].map(k=>getCosineWithouNormalize(k,output.data)), ...c.slice(1)]);
-        /*target = target.map(c=>[
-            [c[0].reduce((res,v)=>res+v,0)/(c[0].length||1),...c[0]],
-            c.slice(1)
-        ]);*/
+
         const f = q => q.reduce((res,v)=>res+v,0)/q.length;
-        target.sort((a,b)=>f(b[0]) /* b[0][0]*/ - f(a[0]) * 1/*a[0][0]*/);
-        //console.log(target, target.map(t=>t[1]));
+        const conv = q => Math.sign(q) * ( Math.abs(q) ** (1/16));
+        target.sort((a,b)=>f(b[0]) * conv(b[0][0]) - f(a[0]) * conv(a[0][0]));
         const flow = new Items(null, ...target.map(t=>t[1]));
         flow.display(document.getElementById("flow-container"));
         document.getElementById("flow-container-scroll-marker").scrollIntoView({
