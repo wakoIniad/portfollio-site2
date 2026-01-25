@@ -126,15 +126,26 @@
         }
       });*/
       window.addEventListener('error', (event) => {
-  console.warn('Caught error:', event.error);
+  console.error('Caught error:', event.error);
   // 必要に応じてエラーをサーバーに送信
 });
 
 // 2. Promise の未処理エラー (Unhandled Rejection) をハンドル
 window.addEventListener('unhandledrejection', (event) => {
-  console.warn('Unhandled promise rejection:', event.reason);
+  console.error('Unhandled promise rejection:', event.reason);
   // 必要に応じてエラーをサーバーに送信
-});/*
+});
+      window.addEventListener("unhandledrejection", e => {
+        const err = e.reason;
+
+        if (err instanceof TypeError) {
+          if (
+            location.protocol === "file:" ||
+            location.origin === "null"
+          ) {
+          }
+        }
+      });/*
       setTimeout(()=>{
         console.log(checkCorsMugr);
         if(!checkCorsMugr) {
@@ -154,5 +165,6 @@ window.addEventListener('unhandledrejection', (event) => {
     <script src="./my-code/ui.js"></script>
     <script src="./my-code/flow.js"></script>
     <script src="./my-code/search-works.js"></script>
+    
 </body>
 </html>
