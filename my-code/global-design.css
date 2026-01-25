@@ -436,13 +436,14 @@ header > .item:hover::before {
     z-index: -1;
 }
 #full-screen-main-multi-ui-container:has(.expanded) {
-    backdrop-filter: blur(5px);
+    /*backdrop-filter: blur(5px);*/
+    backdrop-filter: blur(10px);
     background-color: rgba(26, 34, 52, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    /*position: relative;*/
+    position: relative;
 }
 
 #full-screen-main-multi-ui-container .expanded {

@@ -51,7 +51,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["ウェブアプリケーション",
+    ["アプリ ノートアプリ ウェブ 便利 データベース javascript css html react",
         new Item(
             {
                 "label": "ウェブアプリケーション",
@@ -62,7 +62,7 @@ const candidate = await Promise.all([
             }
         )
     ],
-    ["コーネルボックス CG 大域照明モデル リムナルスペース",
+    ["コーネルボックス CG 大域照明モデル リムナルスペース Python openGL",
         new Item(
             {
                 "label": "pyOpenGL",
