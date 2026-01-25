@@ -104,11 +104,55 @@
     <div id="full-screen-main-multi-ui-container"></div>
     
     <!--<script src="other-author-lib/p5js/perlinnoise.js"></script>-->
-    
-    <!--<script src="./other-author-lib/@xenova/transformers@2.17.1/transformers-bundle.js"></script>-->
+        <script src="ai-code/extract-cors-error.js"></script>
+    <script>
+      /*let qq = 0;
+      extractCorsError(()=>{
+        qq = 1;
+        const a = confirm("この検索機能はサーバーが動いていない状態だと、\n"+
+          "ライブラリのデータを保存しようとするせいでCORS制限に引っかかるみたいなので、\n"+
+          "下のパスにこのタブを開いたままアクセスしたあとリロードして頂きたいです。\n"+
+          "(下のどれかにアクセスすれば、多分アクセス権を得られます)\n"+
+          "file:///C:/models/Xenova/all-MiniLM-L6-v2/onnx/model_quantized.onnx\n"+
+          "file:///C:/models/Xenova/all-MiniLM-L6-v2/tokenizer.json\n"+
+          "file:///C:/models/Xenova/all-MiniLM-L6-v2/config.json\n"+
+          "file:///C:/models/Xenova/all-MiniLM-L6-v2/tokenizer_config.json\n"+
+          "OKで一番下コピペ キャンセルで一番上コピペ"
+        );
+        if(a) {
+          navigator.clipboard.writeText("file:///C:/models/Xenova/all-MiniLM-L6-v2/onnx/model_quantized.onnx");
+        } else {
+          navigator.clipboard.writeText("file:///C:/models/Xenova/all-MiniLM-L6-v2/tokenizer_config.json");
+        }
+      });*/
+      window.addEventListener('error', (event) => {
+  console.warn('Caught error:', event.error);
+  // 必要に応じてエラーをサーバーに送信
+});
+
+// 2. Promise の未処理エラー (Unhandled Rejection) をハンドル
+window.addEventListener('unhandledrejection', (event) => {
+  console.warn('Unhandled promise rejection:', event.reason);
+  // 必要に応じてエラーをサーバーに送信
+});/*
+      setTimeout(()=>{
+        console.log(checkCorsMugr);
+        if(!checkCorsMugr) {
+          window.location.herf = "file:///C:/models/Xenova/all-MiniLM-L6-v2/onnx/model_quantized.onnx";
+          alert("検索に使うモデルが読み込めてないのでリロードします。")
+          setTimeout(()=>{
+            window.location.reload();
+          },0);
+        }
+      },5000);*/
+    </script>
+    <script>
+      let checkCorsMugr = false;
+    </script>
+    <script src="./other-author-lib/@xenova/transformers@2.17.1/transformers-bundle.js"></script>
     <script src="./my-code/define.js"></script>
     <script src="./my-code/ui.js"></script>
     <script src="./my-code/flow.js"></script>
-    <script type="module" src="./my-code/search-works.js"></script>
+    <script src="./my-code/search-works.js"></script>
 </body>
 </html>

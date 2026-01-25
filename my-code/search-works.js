@@ -3,9 +3,10 @@ document.getElementById("flow-container-scroll-marker").scrollIntoView({
     block: 'center'
 });
 
-import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
+//import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
+
 (async()=>{
-//const pipeline = MrsXenova.pipeline;
+const pipeline = MrsXenova.pipeline;
 const pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
 
 //const segmenter = new TinySegmenter();
@@ -75,7 +76,8 @@ const candidate = await Promise.all([
     ]
 ].map(async(v)=>[(await pipe(v[0], {pooling: 'mean', normalize: true})).data, ...v.slice(1)]));
 
-searchBoxForm.addEventListener('submit', (e)=>{
+checkCorsMugr = true;
+searchBoxForm.addEventListener('submit', function(e){
     e.preventDefault();
     (async()=>{
         const output = await pipe(searchBox.value, { pooling: 'mean', normalize: true });
