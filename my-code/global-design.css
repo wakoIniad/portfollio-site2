@@ -284,8 +284,12 @@ header > .item:hover::before {
 }
 
 /* 拡大したときの3D的な没入感の向上(移動する向きを調整)*/
-.expand-on-click:not(.expanded, :has(.expanded)) .img-container:hover img/*.direction-rl*/ {
+.expand-on-click.intense-intaract:not(.expanded, :has(.expanded)) .img-container:hover img/*.direction-rl*/ {
     transform: scale(1.15) translate(5px, -4px);
+}
+
+.expand-on-click:not(.expanded, :has(.expanded)) .img-container:hover img/*.direction-rl*/ {
+    transform: scale(1.05) translate(5px, -4px);
 }
 
 /*:not(#full-screen-main-multi-ui-container) .expand-on-click .img-container:hover img.direction-ll {
