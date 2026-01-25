@@ -261,21 +261,45 @@ header > .item:hover::before {
 /* 拡大したときの3D的な没入感の向上(移動する向きを調整)*/
 .expand-on-click:not(.expanded, :has(.expanded)) .img-container:hover img/*.direction-rl*/ {
     transform: scale(1.15) translate(5px, -4px);
-
-    mix-blend-mode: hard-light;
-    mix-blend-mode: darken;
 }
-.expand-on-click {
+
+.expand-on-click:not(.expanded, :has(.expanded)) .img-container.eff1:hover img {
+    mix-blend-mode: darken;
+    mix-blend-mode:hard-light;
+}
+
+.expand-on-click:has(.eff1:hover) {
+    mix-blend-mode: normal;
+}
+.expand-on-click:has(.eff1) {
+/*    mix-blend-mode: normal !important;*/
+    background-color: white;
+    mix-blend-mode: darken;
+    /*background-color:hotpink;*/
+}
+
+/*.img-container.eff1 img::before{
+    content: "";
     mix-blend-mode: normal !important;
     background-color: aliceblue;
-    background-color:hotpink;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+}*/
+.expand-on-click:has(.img-container.eff3:hover) {
+    mask-image: radial-gradient(circle, rgb(0,0,0,1) 50%, rgb(0,0,0,0) 100%);
 }
-.expand-on-click:not(.expanded, :has(.expanded)) .img-container:hover {
-    position: relative;
+
+.expand-on-click:not(.expanded, :has(.expanded)) .img-container.eff1:hover {
     background: radial-gradient(rgba(255,255,255,0) 32%, rgba(1, 18, 99, 0.409) 120%);
-    
 }
-.expand-on-click:not(.expanded, :has(.expanded)) .img-container:hover::after {
+
+
+.expand-on-click:not(.expanded, :has(.expanded)) .img-container.eff2:hover {
+    position: relative;
+}
+.expand-on-click:not(.expanded, :has(.expanded)) .img-container.eff2:hover::after {
     /*background-color: rgba(220,0.5) !important;*/
     /*filter:brightness(2.5);*/
     /*filter:saturate(2);
@@ -292,7 +316,7 @@ header > .item:hover::before {
     height: 100%;
     left: 0;
     top: 0;
-    /*background: radial-gradient(rgba(255,255,255,0) 32%, rgba(1, 18, 99, 0.409) 120%);*/
+    background: radial-gradient(rgba(255,255,255,0) 32%, rgba(1, 18, 99, 0.409) 120%);
     z-index: 2;
     /* hue-rotate(-15deg);*/
 }
