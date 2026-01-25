@@ -10,22 +10,25 @@ class Item {
 class Items {
     static defaultExpandHandler = defaultExpandHandler;
     static uniqueClassElmMap = {
-        'pack':                     ['flex-unit'                ],
-        'packitem':                 ['flow-pack-item'           ],
-        'label':                    ['flow-label'               ],
-        'resource_container':       ['flow-resource-container'  ],
-        'audio':                    ['flow-audio'               ],
-        'image':                    ['flow-image'               ],
-        'video':                    ['flow-video'               ],
-        'description':              ['flow-description'         ],
-        'context':                  ['flow-context'             ],
-        'stack':                    ['flow-stack'               ],
-        'stackitem':                ['flow-stack-item'          ],
-        'crosslinker':              ['flow-linker-base'         ],
-        'linkerheader':             ['linker-header'            ],
-        'maincontent':              ['flow-content-padding'     ],
-        'expanable':                ['expand-on-click'                ],
-        'singleplay':               ['singleplay'                ],
+        'pack':                     ['flex-unit'                                    ],
+        'packitem':                 ['flow-pack-item'                               ],
+        'label':                    ['flow-label'                                   ],
+        'resource_container':       ['flow-resource-container', 'img-container'     ],
+        'audio':                    ['flow-audio'                                   ],
+        'image':                    ['flow-image'                                   ],
+        'video':                    ['flow-video'                                   ],
+        'description':              ['flow-description'                             ],
+        'context':                  ['flow-context'                                 ],
+        'stack':                    ['flow-stack'                                   ],
+        'stackitem':                ['flow-stack-item'                              ],
+        'crosslinker':              ['flow-linker-base'                             ],
+        'linkerheader':             ['linker-header'                                ],
+        'maincontent':              ['flow-content-padding'                         ],
+        'expanable':                ['expand-on-click'                              ],
+        'singleplay':               ['singleplay'                                   ],
+        'expand_resource_container':['expand-on-click'                              ],
+/*        'expand_description':       ['description'                                  ],*/
+        'detailed':                 ['description'                                  ],
     }
     static ITEM_CONTAINER_CLASS_MAP = {
         'audio': 'resource_container',
@@ -34,7 +37,8 @@ class Items {
         'stack': 'stack',
         'description': 'description',
         'context': 'context',
-        'label': 'label'
+        'label': 'label',
+        'detailed': 'detailed',
     }
     static LINK_TYPE_MAP = [
         [ -1,   [ "cross-linker-reversed-l" ] ], 
@@ -87,8 +91,7 @@ class Items {
                     ch.loop = true;
                 }
                 if(type==='video' || type==='image') {
-                    ch.classList.add(Items.uniqueClassElmMap['expanable']);
-                    ch.onclick  = ()=>Items.defaultExpandHandler(elm);
+                    //ch.classList.add(Items.uniqueClassElmMap['expanable']);
                 }
                 elm = this.createResourceContainer();
                 elm.appendChild(ch);
@@ -108,6 +111,13 @@ class Items {
                     elm.append(line);
                     notFirstLine = true;
                 }
+                break;
+            case 'detailed':
+                console.log("detaiil");
+                elm = document.createElement('div');
+                elm.textContent = value;
+                break;
+                
         }
         return elm;
     }
@@ -127,6 +137,11 @@ class Items {
         root.classList.add(Items.uniqueClassElmMap['linkerheader']);
 
         /*const crossLinkingPosition*/
+    }
+    getExpandContainer() {
+        const elm = document.createElement('div');
+        elm.classList.add(Items.uniqueClassElmMap['expand_resource_container']);
+        return elm;
     }
     display(container) {
         container.innerHTML = "";
@@ -164,9 +179,12 @@ class Items {
             /*const {description, image, audio, video} 
                 = children;*/
             //優先度順の配列
-            const mainContent = ["video", "audio", "image", "description", "context"];
+            const mainContent = ["video", "audio", "image", "context"];
             const subContents = ["description"];
             const other = ["context"];
+            const on_expand = ["detailed"];
+
+            const packed_key = 'container';
             let firstContent = true;
             let lastMaincontent = null;
 
@@ -174,7 +192,22 @@ class Items {
                 firstContent = false;
                 if(flowFrom)this.crosslinking(flowFrom, tailX, content);
             }
-            for(const contentType of [...mainContent, ...subContents, ...other]) {
+
+            const expandableContainer = this.getExpandContainer();
+            for(const contentType of mainContent) {
+                if(contentType in children) {
+                    expandableContainer.appendChild(children[contentType]);
+                }
+            }
+            for(const contentType of on_expand) {
+                if(contentType in children) {
+                    expandableContainer.appendChild(children[contentType]);
+                }
+            }
+            expandableContainer.onclick  = ()=>Items.defaultExpandHandler(expandableContainer);
+            children[packed_key] = expandableContainer;
+
+            for(const contentType of [packed_key, ...subContents, ...other]) {
                 if(contentType in children) {
                     if(mainContent.includes(contentType))lastMaincontent = children[contentType];
                     //tailX = this.pos(counter, children[contentType]);

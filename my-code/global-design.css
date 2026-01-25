@@ -284,7 +284,6 @@ header > .item:hover::before {
     width: fit-content;
     height: fit-content;
     display: flex;
-    
 }
 
 #full-screen-main-multi-ui-container .expanded > .img-container img {
@@ -539,6 +538,14 @@ div.margin-for-background.a1 {
 }
 div.margin-for-background.a2 {
     height: 20vw;
+}
+
+
+div.margin-for-background.a3 {
+    height: 10vw;
+}
+div.margin-for-background.a4 {
+    height: 10vw;
 }
 @media (min-width: 100px) {
     div.margin-for-background {
