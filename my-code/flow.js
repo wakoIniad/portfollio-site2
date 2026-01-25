@@ -8,8 +8,9 @@ class Item {
     }
 }
 class Items {
+    static defaultExpandHandler = defaultExpandHandler;
     static uniqueClassElmMap = {
-        'pack':                     ['flow-pack'                ],
+        'pack':                     ['flex-unit'                ],
         'packitem':                 ['flow-pack-item'           ],
         'label':                    ['flow-label'               ],
         'resource_container':       ['flow-resource-container'  ],
@@ -23,7 +24,7 @@ class Items {
         'crosslinker':              ['flow-linker-base'         ],
         'linkerheader':             ['linker-header'            ],
         'maincontent':              ['flow-content-padding'     ],
-        'expanable':                ['expanable'                ],
+        'expanable':                ['expand-on-click'                ],
         'singleplay':               ['singleplay'                ],
     }
     static ITEM_CONTAINER_CLASS_MAP = {
@@ -86,7 +87,8 @@ class Items {
                     ch.loop = true;
                 }
                 if(type==='video' || type==='image') {
-                    ch.classList.add(Items.uniqueClassElmMap['expanable'])
+                    ch.classList.add(Items.uniqueClassElmMap['expanable']);
+                    ch.onclick  = ()=>Items.defaultExpandHandler(elm);
                 }
                 elm = this.createResourceContainer();
                 elm.appendChild(ch);
@@ -199,6 +201,7 @@ class Items {
     }
     
     forcePosBinary(transformed, target) {
+        if(!this.noise)return;
         if(0 < transformed) {
           target.style.left = `${100-0}%`;
           target.style.transform = `translate(-100%, 0%)`;
@@ -209,6 +212,7 @@ class Items {
         }
     }
     forcePos(transformed, target) {
+        if(!this.noise)return;
         if(0 < transformed) {
           //target.style.right = `${-(~~(50-transformed*100))-50}%`;
           target.style.left = `${100-(~~(50-transformed*100))}%`;
@@ -223,6 +227,7 @@ class Items {
         }%`;
     }
     onlyPos(count) {
+        if(!this.noise)return 0;
         const useVal = this.noise(count*100/16);
         const transformed = 1/(1+Math.exp( (useVal-0.5)*10 ))- 0.5;
         return transformed;

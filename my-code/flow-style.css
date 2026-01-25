@@ -2,9 +2,9 @@
     --linker-width: 4px;
     --unit: 0.1px;
     --flow-content-padding: 60px;
-    --flow-item-padding: 60px;
+    --flow-item-padding: 32px;
     --max-item-height: 200px;
-    --def-width: calc(100vh/400 * 200);
+    --def-width: 100%;
     --linker-overlap: 16px;
     --mini-padding-unit: 4px;
     --tentative-color: 200, 200, 200;
@@ -46,6 +46,7 @@
     overflow-y: scroll; 
     overflow-x: hidden;
     width: var(--def-width);
+    padding: 0;
     height: fit-content;
     flex-direction: column;
     
@@ -53,7 +54,6 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -91,7 +91,8 @@
 .flow-context {
     background-color: rgba(var(--tentative-color), 0.5);
     border-radius: 50px 30%;
-    padding-inline: var(--flow-item-padding);
+    padding-block: var(--flow-item-padding);
+    padding-inline: var(--mini-padding-unit);
     font-weight: lighter;
     font-family: sans-serif;
 }
@@ -158,6 +159,12 @@
     /*1px*/
     filter: drop-shadow(1px 1px 4px rgba(143,255,240,1));
 }
+
+/**/
+.flow-linker-base {
+    display: none !important;
+}
+/**/
 
 .cross-linker-reversed-l {
     border-left: none;
@@ -228,7 +235,7 @@
 
 .flow-pack {
     display: block;
-    position: relative;
+    /*position: relative;*/
     width: 100%;
     height: fit-content;
 }
@@ -238,7 +245,7 @@
 }
 
 .flow-pack .flow-pack-item {
-    position: relative;
+    /*position: relative;*/
     box-sizing: fit-content;
     margin-bottom: var(--flow-item-padding);
 }
@@ -315,4 +322,35 @@
     
     /*font-family: "Shippori Mincho";*/
     /*font-family: sans-serif;*/
+}
+
+#flow-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.flex-unit {
+    width: 33%; 
+    height: fit-content; 
+    flex: 1; 
+    min-width: max(300px, 33vh);
+    width:33vw;
+}
+
+body {
+    background-color: #222;
+    color: white;
+}
+
+#works-container {
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    height:100%;
+}
+
+#works-container img {
+    max-width: 100%;
 }

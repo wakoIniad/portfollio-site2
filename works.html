@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="my-code/flow-style.css" rel="stylesheet">
+
+    <script src="other-author-lib/RaumZeit/Marchingsquares.js"></script>
+
+    <script src="my-code/fade.js"></script>
+    <link href="./my-code/global-design.css" rel="stylesheet">
+    <link href="./my-code/ui-anim.css" rel="stylesheet">
     <!--辞書のサイズが小さいものを選択-->
 </head>
-<body style="height:100%;">
+<body>
+ 
     <form id="searchbox-form">
-       <input placeholder="言語モデルを使った検索" id="searchbox">
+       <input placeholder="言語モデルで検索" id="searchbox">
     </form>
     <hr>
     <form id="visitor-form">
@@ -27,33 +34,42 @@
           <option value="b">雰囲気</option>
         </select>
     </form>
-    <span>このセクションは自動生成されています。</span>
     
-    <div class="page">
-        <div id="flow-container" class="container-base flow-list-container">
+    <!--<div class="page">-->
+    
+    <!--</div>-->
+
+    <div id="works-container">
+        <div id="flow-container">
+            <span>検索ワードを入れるとこのセクションは自動生成されます。</span>
+            <!--class="container-base flow-list-container"-->
             <!--<img src="./a8ei.png">-->
         </div>
     </div>
-
-    <div id="works-container" style="display: flex;flex-wrap: wrap;height:100%;">
-        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">
-            Art(Music, Illust)
-            <img src="my-works/for-search/image2.png">
-        </div>
-        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">
-            Programing 
-        </div>
-        <div style="background:red; width: 33%; height: 100%; flex: 1; min-width: 33vh;width:33vw;">
-            Other
-        </div>
-    </div>
+    <div id="full-screen-main-multi-ui-container"></div>
     
-    <style>
-        #works-container img {
-            max-width: 100%;
-    }
-    </style>
-    <script src="other-author-lib/p5js/perlinnoise.js"></script>
+    <svg style="position:absolute;z-index:-5;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <mask id="fade-anim-mask"
+            maskUnits="objectBoundingBox"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%">
+                <g transform="scale(1.45, 1.45) translate(-5, -60)">
+                    <rect id="fade-mask-bg" fill="white" x="0%" y="0%" width="100%" height="500%"></rect>
+                    <path id="fade-mask-target" d="" fill="black" fill-rule="evenodd"/>
+                    <filter>
+                      <feGaussianBlur stdDeviation="5"/>
+                    </filter>
+                </g>
+            </mask>
+        </defs>
+    </svg>
+    <!--<script src="other-author-lib/p5js/perlinnoise.js"></script>-->
+    
+    <script src="./my-code/define.js"></script>
+    <script src="./my-code/ui.js"></script>
     <script src="my-code/flow.js"></script>
     <script type="module">
         import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
@@ -73,7 +89,7 @@
                     {
                        "label": "絵",
                        "image": "my-works/content/ko.png",
-                       "stack": ["アクリル画", "デジタル絵", "(レタリング)", "最近描いてない"],
+                       "stack": ["アクリル画", "デジタル絵", "(レタリング)"],
                        "description": "飛行機"
                     }
                 ),
@@ -83,7 +99,7 @@
                     {
                        "label": "絵",
                        "image": "my-works/content/ko.png",
-                       "stack": ["アクリル画", "デジタル絵", "(レタリング)", "最近描いてない"],
+                       "stack": ["アクリル画", "デジタル絵", "(レタリング)"],
                        "description": "飛行機"
                     }
                 ),
@@ -105,7 +121,7 @@
                     {
                         "label": "ウェブアプリケーション",
                         "video": "my-works/content/memolive-app.mp4",
-                        "stack": ["JS", "TS", "SCSS", "CSS", "HTML", "React"],
+                        "stack": ["JS", "TS", "SCSS", "HTML", "React"],
                         "description": "いろいろなボックスを自由に並べたり入れ子状に組み合わせてデザインできる共同編集可能なノートアプリケーション"
                     }
                 )
@@ -115,7 +131,7 @@
                     {
                         "label": "pyOpenGL",
                         "movie": "",
-                        "stack": ["Blender", "pyOpenGL", "Shader", "p5.js", "ShaderLab", "post-process", "Unity", "ゲーム開発"],
+                        "stack": ["CG", "pyOpenGL"],
                         "description": "-- -- --"
                     }
                 )
@@ -131,7 +147,7 @@
                 let target = candidate.map(c=>[getCosineWithouNormalize(c[0],output.data), ...c.slice(1)])
                 target.sort((a,b)=>b[0] - a[0]);
                 //console.log(target, target.map(t=>t[1]));
-                const flow = new Items(noise, ...target.map(t=>t[1]));
+                const flow = new Items(null, ...target.map(t=>t[1]));
                 flow.display(document.getElementById("flow-container"));
             })();
         });
