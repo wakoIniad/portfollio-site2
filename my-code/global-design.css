@@ -20,6 +20,9 @@ body {
     background:rgb(26, 34, 52);
     color: white;
     overflow: hidden;
+
+    --overlay-dark: 0;
+    --overlay-dark2: 0;
 }
 
 body > main {
@@ -28,7 +31,6 @@ body > main {
 
 body > main > .board {
     overflow: hidden; 
-    --overlay-dark: 0;
     position: relative;
 }
 
@@ -64,10 +66,15 @@ body > * {
 body header, body main, body footer {
     text-align: center;
 }
-
+body {
+    --neo-main-scroll: rgba(215, 142, 216, calc(1 - min(1, var(--overlay-dark2)/1.5) ));
+    --neo-main: rgba(215, 142, 216);
+}
 body footer {
     max-height: 2em;
-    background:rgb(215, 142, 216);
+/*    background: var(--neo-main-scroll);*/
+    
+    /*background:rgb(26, 34, 52);*/
     color:rgb(60,60,60);
 }
 @media (min-width: 450px) {
@@ -445,6 +452,10 @@ header > .item:hover::before {
     flex-direction: row;
     position: relative;
 }
+
+/*body:has(#full-screen-main-multi-ui-container:has(.expanded)) footer {
+    background-color: var(--neo-main) !important;
+}*/
 
 #full-screen-main-multi-ui-container .expanded {
     cursor:zoom-out;

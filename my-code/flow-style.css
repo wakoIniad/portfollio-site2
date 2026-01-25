@@ -85,6 +85,7 @@
 
 .flow-description {
     background-color: rgb(var(--tentative-color));
+    border-top: solid 3px var(--main-accent);
     padding-inline: var(--mini-padding-unit)
 }
 
@@ -300,10 +301,12 @@
     padding: var(--mini-padding-unit);
     overflow: hidden;
     border-radius: 9px;
+    background: rgb(197, 199, 209);
 }
 
 .flow-stack-item {
     background: var(--main-accent);
+    background: rgb(208, 200, 235);
     display: inline-block;
     margin: var(--mini-padding-unit);
     padding: var(--mini-padding-unit);
