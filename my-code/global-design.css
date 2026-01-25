@@ -44,6 +44,7 @@ body > main > .board::after {
     /*background-color: rgba(61, 3, 71, calc(0.4 * min(1, 1.5*var(--overlay-dark)) ));*/
     /*background-color: rgb(25, 16, 36);*/
     background-image: url("../my-works/bagkground2.png");
+    filter: blur(calc(4px * var(--overlay-dark)));
     background-color: rgb(25, 16, 36);
     /*filter: contrast(0.85) brightness(0.85);*/
     /*filter: brightness(0.85);*/
