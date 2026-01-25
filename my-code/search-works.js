@@ -11,11 +11,14 @@ import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17
 
 //const pipeline = MrsXenova.pipeline;
 
-const pipe = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
-const translator = await pipeline(
+const pipe = await pipeline(
+    'feature-extraction',
+    'Xenova/all-MiniLM-L6-v2'
+);
+/*const translator = await pipeline(
   "translation",
   "Xenova/opus-mt-ja-en"
-);
+);*/
 
 //const segmenter = new TinySegmenter();
 const searchBoxForm = document.getElementById("searchbox-form");
@@ -99,8 +102,8 @@ console.log("CAN", candidate);
 searchBoxForm.addEventListener('submit', function(e){
     e.preventDefault();
     (async()=>{
-        const translatedToEn = (await translator([searchBox.value]))[0].translation_text;
-        console.log(translatedToEn,"ENE")
+        const translatedToEn = searchBox.value;//(await translator([searchBox.value]))[0].translation_text;
+        //console.log(translatedToEn,"ENE")
         const output = await pipe(translatedToEn, { pooling: 'mean', normalize: true });
         console.log(translatedToEn, output.data);
         //const splitted = searchBox.value.split(/\s/).reduce((res,v)=>[...segmenter.segment(v), ...res],[]);
