@@ -421,14 +421,13 @@ header > .item:hover::before {
 /*    transition-property: --blur-val;
     transition-duration: 1s;
     transition-timing-function: ease;*/
-    transition: all ease 10s;
+    /*transition: all ease 10s;*/
 }
 #full-screen-main-multi-ui-container:has(.expanded)::before{
     --blur-val:10px;
     position: absolute;
-    backdrop-filter: blur(10px);
-    /*background-color: rgb(255,255,255,0.5);
-    filter:blur(64px);*/
+    background-color: rgb(255,255,255,0.3);
+    filter:blur(128px);
     width: 100%;
     content: "";
     height: 100%;
@@ -437,6 +436,7 @@ header > .item:hover::before {
     z-index: -1;
 }
 #full-screen-main-multi-ui-container:has(.expanded) {
+    backdrop-filter: blur(5px);
     background-color: rgba(26, 34, 52, 0.6);
     display: flex;
     align-items: center;
