@@ -76,7 +76,7 @@ flow.display(document.getElementById("flow-container"), false);
 
 if(confirm(
     '検索機能はサーバーがないと動かすのが難しかったため、別の場所にデプロイしました。'+
-    '\nOKで転送します。'
+    '\nOKで転送します。キャンセルで検索機能以外の部分が見られます。'
 )) {
     window.location.href = "https://akizora.vercel.app/works.html";
 };
