@@ -67,9 +67,14 @@ body header, body main, body footer {
 
 body footer {
     max-height: 2em;
-    background:rgb(215, 142, 216);
+    /*background:rgb(215, 142, 216);*/
     color:rgb(60,60,60);
 }
+
+body#works footer {
+    background:rgb(215, 142, 216);
+}
+
 @media (min-width: 450px) {
     body header {
         flex: 2;

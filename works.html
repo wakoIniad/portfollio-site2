@@ -13,9 +13,7 @@
     <link href="./my-code/ui-anim.css" rel="stylesheet">
     <!--辞書のサイズが小さいものを選択-->
 </head>
-<body>
- 
-        
+<body id="works">
     <svg style="position:absolute;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <mask id="fade-anim-mask"
@@ -57,7 +55,7 @@
               Game Developing etc
             </div>
             <form id="searchbox-form">
-               <input type="text" pattern="[A-Za-z -~]+" title="英語以外は精度落ちます。" placeholder="言語モデルで検索" id="searchbox">
+               <input type="text" pattern="[A-Za-z -~]+" title="英語以外は精度落ちます。" placeholder="言語モデルで検索: 英語" id="searchbox">
             </form>
             <hr>
             <!--<form id="visitor-form">
@@ -78,7 +76,8 @@
 
             <div id="works-container">
                 <div id="flow-container">
-                    <span>検索ワードを入れるとこのセクションは自動生成されます。</span>
+                    <span style="min-width:100%; flex-shrink:0;">検索ワードを入れると関連度順で並び替えられます。</span>
+                    <br >
                     <!--class="container-base flow-list-container"-->
                     <!--<img src="./a8ei.png">-->
                 </div>
@@ -109,14 +108,15 @@
       let checkCorsMugr = false;
     </script>
     
-    <script src="./other-author-lib/@xenova/transformers@2.17.1/transformers-bundle.js"></script>
     <script src="./my-code/define.js"></script>
     <script src="./my-code/ui.js"></script>
     <script src="./my-code/flow.js"></script>
+    <script src="./my-code/work-data.js"></script>
+    <script src="./other-author-lib/@xenova/transformers@2.17.1/transformers-bundle.js"></script>
     <script src="./my-code/search-works.js"></script>
 
     <script>
-      setTimeout(()=>{
+      /*setTimeout(()=>{
         if(!checkCorsMugr) {
           const c = confirm(
             "本番用と違いサーバーがないため検索機能に使うリソースがうまく読み込めませんでした。\n"+
@@ -136,7 +136,7 @@
             },2000);
           }
         }
-      },3000);
+      },3000);*/
     </script>
 
 </body>
