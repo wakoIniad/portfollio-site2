@@ -318,24 +318,24 @@ header > .item:hover::before {
 }
 
 
-.expand-on-click:not(.expanded, :has(.expanded)):has(.ett) .d-section {
+.expand-on-click:not(.expanded, :has(.expanded)):has(.ett) .insection {
     /*background-color: rgba(0, 255, 242, var(--overlay-dark));*/
     /*mix-blend-mode: normal;*/
 }
 
-.expand-on-click:not(.expanded, :has(.expanded)):has(.ett) .d-section {
+.expand-on-click:not(.expanded, :has(.expanded)):has(.ett) .insection {
 /*    mix-blend-mode: normal !important;*/
     background-color: black;
     mix-blend-mode: darken;
     /*background-color:hotpink;*/
 }
 
-.expand-on-click:not(.expanded, :has(.expanded)) .d-section .img-container.eff1:hover img {
+.expand-on-click:not(.expanded, :has(.expanded)) .insection .img-container.eff1:hover img {
     /*mix-blend-mode: darken;*/
     mix-blend-mode: hard-light;
 }
 
-.expand-on-click:not(.expanded, :has(.expanded)):has(.eff1:hover) .d-section {
+.expand-on-click:not(.expanded, :has(.expanded)):has(.eff1:hover) .insection {
     background-color: rgb(0, 255, 242);
     mix-blend-mode: normal;
 }
@@ -350,34 +350,33 @@ header > .item:hover::before {
     position: absolute;
     display: block;
 }*/
-.expand-on-click:not(.expanded, :has(.expanded)):has(.img-container.eff3:hover) .d-section {
+.expand-on-click:not(.expanded, :has(.expanded)):has(.img-container.eff3:hover) .insection {
     mask-image: radial-gradient(circle, rgb(0,0,0,1) 50%, rgb(0,0,0,0) 100%);
 }
 
-.expand-on-click:not(.expanded, :has(.expanded)) .d-section .img-container.eff1:hover {
+.expand-on-click:not(.expanded, :has(.expanded)) .insection .img-container.eff1:hover {
     background: radial-gradient(rgba(255,255,255,0) 32%, rgba(1, 18, 99, 0.409) 120%);
 }
 
 
-.expand-on-click:not(.expanded, :has(.expanded)):has(.eff2:hover) .d-section {
+.expand-on-click:not(.expanded, :has(.expanded)):has(.eff2:hover) .insection {
     mix-blend-mode: normal;
 
 }
-
-.insection {
+.insection:has(.eff2:hover) {
     mix-blend-mode: normal;
 }
 
-.expand-on-click:not(.expanded, :has(.expanded)) .d-section .img-container.eff2:hover {
+.expand-on-click:not(.expanded, :has(.expanded)) .insection .img-container.eff2:hover {
     position: relative;
 }
 
 
-.expand-on-click:not(.expanded, :has(.expanded)) .d-section .img-container.eff2:hover img {
+.expand-on-click:not(.expanded, :has(.expanded)) .insection .img-container.eff2:hover img {
     filter: contrast(1.5) brightness(1.2) saturate(0.75) hue-rotate(15deg);
 }
 
-.expand-on-click:not(.expanded, :has(.expanded)) .d-section .img-container.eff2:hover::after {
+.expand-on-click:not(.expanded, :has(.expanded)) .insection .img-container.eff2:hover::after {
     /*background-color: rgba(220,0.5) !important;*/
     /*filter:brightness(2.5);*/
     /*filter:saturate(2);
