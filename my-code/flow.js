@@ -143,8 +143,8 @@ class Items {
         elm.classList.add(Items.uniqueClassElmMap['expand_resource_container']);
         return elm;
     }
-    display(container) {
-        container.innerHTML = "";
+    display(container, reset=true) {
+        if(reset)container.innerHTML = "";
         const nowHeight = 0;
         let tailX = null
         for(const [counter, item] of Object.entries(this.items)) {
