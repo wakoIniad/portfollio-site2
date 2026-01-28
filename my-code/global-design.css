@@ -364,7 +364,7 @@ header > .item:hover::before {
 
 }
 
-.insection {
+.insection:has(.eff2:hover) {
     mix-blend-mode: normal;
 }
 
@@ -459,7 +459,32 @@ header > .item:hover::before {
     align-items: center;
     --description-ratio: 20%;
 }
-#full-screen-main-multi-ui-container .expanded > .img-container {
+
+.section {
+    padding: 4px;
+}
+
+.img-container img {
+}
+
+.img-container {
+    overflow: hidden;
+}
+
+.insection {
+    mask: linear-gradient(#fff);
+}
+
+.insection .d-section {
+    mask: linear-gradient(#fff 0 0);
+}
+
+.insection .img-container {
+    mask: linear-gradient(#fff 0 0);
+}
+
+
+#full-screen-main-multi-ui-container .expanded > .insection /*.img-container*/ {
     flex-grow: 0;
     flex-shrink: 0;
     /*flex-basis: fit-content;*/
@@ -467,7 +492,6 @@ header > .item:hover::before {
     max-height: 100%;
     width: fit-content;
     height: fit-content;
-    display: flex;
 }
 
 #full-screen-main-multi-ui-container .expanded > .insection .img-container img {

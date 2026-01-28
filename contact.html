@@ -3,16 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-        * {
-            background: black;
-            color: white;
-            font-family: monospace;
+    <title></title>
+    
+    <!--<script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/",
+          "GLTFLoader":"https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/loaders/GLTFLoader.js",
+          "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/controls/OrbitControls"
         }
-    </style>
-    {"status": "作り途中\n\r"}
+      }
+    </script>-->
+     
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+   
+    <script src="other-author-lib/RaumZeit/Marchingsquares.js"></script>
+
+    <script src="my-code/fade.js"></script>
+    <link href="./my-code/global-design.css" rel="stylesheet">
+    <link href="./my-code/ui-anim.css" rel="stylesheet">
+    <link href="./my-code/form-design.css" rel="stylesheet">
+
+</head>
+<body>    
+    <svg style="position:absolute;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <mask id="fade-anim-mask"
+            maskUnits="objectBoundingBox"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%">
+                <g transform="scale(1.45, 1.45) translate(-5, -60)">
+                    <rect id="fade-mask-bg" fill="white" x="0%" y="0%" width="100%" height="500%"></rect>
+                    <path id="fade-mask-target" d="" fill="black" fill-rule="evenodd"/>
+                    <filter>
+                      <feGaussianBlur stdDeviation="5"/>
+                    </filter>
+                </g>
+            </mask>
+        </defs>
+    </svg>
+    <header class="rotated-ui">
+      <span class="item"><a href="./works.html">Works<span class="hitobj"></span></a></span>
+      <span class="item"><a href="./contact.html">Contact<span class="hitobj"></span></a></span>
+      <span class="item"><a href="./index.html#top">Top<span class="hitobj"></span></a></span>
+      <span class="item"><a href="./news.html">News<span class="hitobj"></span></a></span>
+      <span class="vr">w<br>h<br>o</span>
+      <span class="vr">a<br>r<br>e</span>
+      <span class="vr">y<br>o<br>u</span>
+    </header>
+    <svg style="position:absolute;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <mask id="chore-css">
+          <rect width="100%" height="100%" fill="white"/>
+        </mask>
+      </defs>
+    </svg>
+    <main class="container-base">
+        <div class="board">
+          <div class="board-content" id="main-container">
+            <form>
+                <label for="form-email">返信用メールアドレス</label>
+                <input id="form-email" type="email" name="">
+                <label for="form-body">本文</label>
+                <textarea id="form-body" name=""></textarea>
+                <label for="form-body">ファイル</label>
+                <input type="file">
+                <label></label>
+            </form>
+          </div>
+        </div>
+        <div class="triangle-menu-container btn-on-canvas triangle thin-item" id="smartphone-overlay-button">
+          <a><div class="menu-item"><section class="reversed-text">品物</section></div></a>
+        </div>
+        <div class="smartphone-overlay-menu-content" id="smartphone-overlay-menu">
+          <a href="works.html">WORKS</a><br>
+          <a href="contact.html">CONTACT</a><br>
+          <a href="news.html">NEWS</a><br>
+          <a href="#top">TOP</a><br>
+        </div>
+    </main>
+    <footer>Copyright &copy; 2026 旻.</footer>
+    <div id="full-screen-main-multi-ui-container"></div>
+    
+    <script src="./my-code/define.js"></script>
+    <script src="./my-code/ui.js"></script>
+    <script src="./my-code/sink-to-bottom.anim.js"></script>
+    <script src="./my-code/chore.js"></script>
 </body>
 </html>
