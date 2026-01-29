@@ -13,7 +13,7 @@ class Items {
         'pack':                     ['flex-unit'                                    ],
         'packitem':                 ['flow-pack-item'                               ],
         'label':                    ['flow-label'                                   ],
-        'resource_container':       ['flow-resource-container', 'img-container'     ],
+        'resource_container':       ['flow-resource-container', /*'img-container'*/     ],
         'audio':                    ['flow-audio'                                   ],
         'image':                    ['flow-image'                                   ],
         'video':                    ['flow-video'                                   ],
@@ -56,6 +56,19 @@ class Items {
         elm.textContent = text;
         return elm;
     }
+    getExpandableMainContentWrapper(item) {
+        
+        const wrapper_root = document.createElement('div');
+        const wrapper_dep1 = document.createElement('div');
+        const wrapper_dep2 = document.createElement('div');
+        wrapper_root.classList.add('insection');
+        wrapper_dep1.classList.add('d-section');
+        wrapper_dep2.classList.add('img-container');
+        wrapper_dep2.append(item);
+        wrapper_dep1.append(wrapper_dep2);
+        wrapper_root.append(wrapper_dep1);
+        return wrapper_root;
+    }
     createResourceContainer() {
         const elm = document.createElement('div');
         return elm;
@@ -91,9 +104,11 @@ class Items {
                     ch.loop = true;
                 }
                 if(type==='video' || type==='image') {
+                    //ch = wrapper_dep1;
                     //ch.classList.add(Items.uniqueClassElmMap['expanable']);
+                    
                 }
-                elm = this.createResourceContainer();
+                elm = this.getExpandableMainContentWrapper(ch);/*this.createResourceContainer();*/
                 elm.appendChild(ch);
                 break;
             case 'label':
@@ -143,8 +158,8 @@ class Items {
         elm.classList.add(Items.uniqueClassElmMap['expand_resource_container']);
         return elm;
     }
-    display(container, rest=true) {
-        if(rest)container.innerHTML = "";
+    display(container, reset=true) {
+        if(reset)container.innerHTML = "";
         const nowHeight = 0;
         let tailX = null
         for(const [counter, item] of Object.entries(this.items)) {
