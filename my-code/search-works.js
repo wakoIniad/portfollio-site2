@@ -5,7 +5,7 @@ document.getElementById("flow-container-scroll-marker").scrollIntoView({
 
 import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1/dist/transformers.min.js";
 //できるだけサイズの小さいもの
-import { TinySegmenter } from "../other-author-lib/tiny-segmenter@0.2.0/tiny-segmenter-0.2.0.js";
+/*import { TinySegmenter } from "../other-author-lib/tiny-segmenter@0.2.0/tiny-segmenter-0.2.0.js";*/
 
 (async()=>{
 
