@@ -3,21 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-        * {
-            background: black;
-            color: white;
-            font-family: monospace;
+    <title></title>
+    
+    <!--<script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/",
+          "GLTFLoader":"https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/loaders/GLTFLoader.js",
+          "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/controls/OrbitControls"
         }
-    </style>
-    <form>
-        <label for="form-email">aaa</label><br>
-        <input id="form-email" name="" type="email" placeholder="返信用">
-        <label for="form-email">aaa</label><br>
-        <input id="" name="" type="email" placeholder="返信用">
-    </form>
+      }
+    </script>-->
+     
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+   
+    <script src="other-author-lib/RaumZeit/Marchingsquares.js"></script>
+
+    <script src="my-code/fade.js"></script>
+    <link href="./my-code/global-design.css" rel="stylesheet">
+    <link href="./my-code/ui-anim.css" rel="stylesheet">
+    <link href="./my-code/form-design.css" rel="stylesheet">
+
+</head>
+<body>    
+    <svg style="position:absolute;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <mask id="fade-anim-mask"
+            maskUnits="objectBoundingBox"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%">
+                <g transform="scale(1.45, 1.45) translate(-5, -60)">
+                    <rect id="fade-mask-bg" fill="white" x="0%" y="0%" width="100%" height="500%"></rect>
+                    <path id="fade-mask-target" d="" fill="black" fill-rule="evenodd"/>
+                    <filter>
+                      <feGaussianBlur stdDeviation="5"/>
+                    </filter>
+                </g>
+            </mask>
+        </defs>
+    </svg>
+    <header class="rotated-ui">
+      <span class="item"><a href="./works.html">Works<span class="hitobj"></span></a></span>
+      <span class="item"><a href="./contact.html">Contact<span class="hitobj"></span></a></span>
+      <span class="item"><a href="./index.html#top">Top<span class="hitobj"></span></a></span>
+      <span class="item"><a href="./news.html">News<span class="hitobj"></span></a></span>
+      <span class="vr">w<br>h<br>o</span>
+      <span class="vr">a<br>r<br>e</span>
+      <span class="vr">y<br>o<br>u</span>
+    </header>
+    <svg style="position:absolute;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <mask id="chore-css">
+          <rect width="100%" height="100%" fill="white"/>
+        </mask>
+      </defs>
+    </svg>
+    <main class="container-base">
+        <div class="board">
+          <div class="board-content" id="main-container">
+            <div class="form-container">
+                <form target="_blank"
+                action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScC3UuhRV4BU4QZcDQuF3aSX2APMB6vmb8NmTtKCKLJDooK9A/formResponse" method="POST">
+                    <label for="form-email">メールアドレス</label>
+                    <input id="form-email" type="email" name="emailAddress">
+                    <label for="form-name">名前</label>
+                    <input id="form-name" type="text" name="entry.327824648">
+                    <label for="form-body"></label>
+                        <textarea oninput="reflectionContent();" id="form-body" class="textarea-source" name="entry.290144385"></textarea>
+                    <button style="background-color: transparent;color:white;">送信</button>
+                </form>
+                <script>
+                    function reflectionContent() {
+                        const source = document.getElementById('form-body');
+                        /*view.textContent = source.textContent;*/
+                        
+                        source.style.height = `auto`;
+                        getComputedStyle(source);
+                        source.style.height = `${source.scrollHeight}px`;
+                    }
+                </script>
+            </div>
+          </div>
+        </div>
+        <div class="triangle-menu-container btn-on-canvas triangle thin-item" id="smartphone-overlay-button">
+          <a><div class="menu-item"><section class="reversed-text">品物</section></div></a>
+        </div>
+        <div class="smartphone-overlay-menu-content" id="smartphone-overlay-menu">
+          <a href="works.html">WORKS</a><br>
+          <a href="contact.html">CONTACT</a><br>
+          <a href="news.html">NEWS</a><br>
+          <a href="#top">TOP</a><br>
+        </div>
+    </main>
+    <footer>Copyright &copy; 2026 旻.</footer>
+    <div id="full-screen-main-multi-ui-container"></div>
+    
+    <script src="./my-code/define.js"></script>
+    <script src="./my-code/ui.js"></script>
+    <script src="./my-code/sink-to-bottom.anim.js"></script>
+    <script src="./my-code/chore.js"></script>
 </body>
 </html>
