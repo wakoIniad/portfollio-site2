@@ -165,6 +165,7 @@ main {
     max-width: 100%;
     height: auto;
     max-height: 65vh;
+    transform: scale(1.05);
 }
 
 header {
@@ -473,6 +474,8 @@ header > .item:hover::before {
 
 .insection {
     mask: linear-gradient(#fff);
+    padding: 0;
+    margin: 0;
 }
 
 .insection .d-section {
@@ -546,6 +549,7 @@ header > .item:hover::before {
     grid-gap: 4px;
     grid-auto-flow: dense;
 }
+
 .multiple-container > *:last-child {
   grid-column: span 2;
 }

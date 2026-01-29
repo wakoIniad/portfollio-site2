@@ -64,15 +64,32 @@
     <main class="container-base">
         <div class="board">
           <div class="board-content" id="main-container">
-            <form>
-                <label for="form-email">返信用メールアドレス</label>
-                <input id="form-email" type="email" name="">
-                <label for="form-body">本文</label>
-                <textarea id="form-body" name=""></textarea>
-                <label for="form-body">ファイル</label>
-                <input type="file">
-                <label></label>
-            </form>
+            <div class="form-container">
+                <form target="_blank"
+                action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScC3UuhRV4BU4QZcDQuF3aSX2APMB6vmb8NmTtKCKLJDooK9A/formResponse" method="POST">
+                    <label for="form-email">返信先メールアドレス</label>
+                    <input id="form-email" type="email" name="emailAddress">
+                    <label for="form-name">返信で使用する名前</label>
+                    <input id="form-name" type="text" name="entry.327824648">
+                    <label for="form-body">本文</label>
+                    <!--<div id="form-textarea-container" class="fitcontent-textarea">
+                        <div id="form-textarea-view" class="textarea-reflector"></div>-->
+                        <textarea oninput="reflectionContent();" id="form-body" class="textarea-source" name="entry.290144385"></textarea>
+                        
+                    <!--</div>-->
+                    <button style="background-color: transparent;color:white;">送信</button>
+                </form>
+                <script>
+                    function reflectionContent() {
+                        const source = document.getElementById('form-body');
+                        /*view.textContent = source.textContent;*/
+                        
+                        source.style.height = `auto`;
+                        getComputedStyle(source);
+                        source.style.height = `${source.scrollHeight}px`;
+                    }
+                </script>
+            </div>
           </div>
         </div>
         <div class="triangle-menu-container btn-on-canvas triangle thin-item" id="smartphone-overlay-button">
